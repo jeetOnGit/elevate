@@ -7,7 +7,7 @@ export default function Submissions() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch('http://localhost:5000/submissions')
+    fetch('https://elevate-d7qq.onrender.com/submissions')
       .then((res) => res.json())
       .then((data) => {
         setSubmissions(data);
