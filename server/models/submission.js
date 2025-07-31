@@ -8,7 +8,8 @@ const SubmissionSchema = new mongoose.Schema({
   phone: String,
   gender: String,
   church: String,
-  inviteby: String,
+  organization: String,
+  invitedBy: String,
   institution: String,
   options: [String], // checkbox selections
 }, {

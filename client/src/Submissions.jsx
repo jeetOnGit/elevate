@@ -12,6 +12,8 @@ export default function Submissions() {
       .then((data) => {
         setSubmissions(data);
         setLoading(false);
+        console.log(data);
+        
       })
       .catch((err) => {
         console.error('Error fetching submissions:', err);

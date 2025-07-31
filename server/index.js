@@ -29,12 +29,26 @@ app.post("/submit", async (req, res) => {
 });
 
 // GET route to return all submissions
+// app.get("/submissions", async (req, res) => {
+//   try {
+//     const data = await Submission.find().sort({ createdAt: -1 });
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ message: "Error retrieving data", error });
+//   }
+// });
+
 app.get("/submissions", async (req, res) => {
   try {
     const data = await Submission.find().sort({ createdAt: -1 });
+    console.log("✅ Retrieved data:", data.length, "entries"); // Log success
     res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving data", error });
+    console.error("❌ Error retrieving data:", error); // This will show in Render logs
+    res.status(500).json({ 
+      message: "Error retrieving data", 
+      error: error.message || error.toString() // Send actual error
+    });
   }
 });
 

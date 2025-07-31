@@ -70,7 +70,7 @@ const Schedule = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-6">📅 Tomorrow's Event Schedule</h1>
+      <h1 className="text-2xl font-bold text-center mb-6">📅 Today's Event Schedule</h1>
       {schedule.map((event, index) => renderEvent(event, index))}
     </div>
   );
