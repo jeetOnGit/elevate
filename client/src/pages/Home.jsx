@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Links } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -260,11 +261,11 @@ const Home = () => {
             <div>
               <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="hover:text-white transition">About Us</a></li>
-                <li><a href="/form" className="hover:text-white transition">Elevate Registration</a></li>
-                <li><a href="/admin" className="hover:text-white transition">Get Involved</a></li>
-                <li><a href="#" className="hover:text-white transition">Donate</a></li>
-                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                <li><Link to="#" className="hover:text-white transition">About Us</Link></li>
+                <li><Link to="/form" className="hover:text-white transition">Elevate Registration</Link></li>
+                <li><Link to="/admin" className="hover:text-white transition">Get Involved</Link></li>
+                <li><Link to="#" className="hover:text-white transition">Donate</Link></li>
+                <li><Link to="#" className="hover:text-white transition">Contact</Link></li>
               </ul>
             </div>
             
