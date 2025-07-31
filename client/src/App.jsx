@@ -14,6 +14,7 @@ function AppRouter() {
         {/* <Route path="/" element={<Navigate to="/login" />} /> */}
         <Route path="/" element={<Schedule />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="/home" element={<Home />} />
         <Route path="/form" element={<CustomForm />} />
         {/* Protected Routes */}
