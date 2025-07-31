@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SlotCheckboxGroup from './Components/SlotCheckboxGroup';
+
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -16,18 +18,20 @@ export default function App() {
   });
 
   const [selectedOptions, setSelectedOptions] = useState([]);
+const [resetSignal, setResetSignal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const activities = [
-    'Workshops',
-    'Prayer Meeting',
-    'Youth Fellowship',
-    'Volunteer Service',
-    'Bible Study',
-    'Music & Worship',
-  ];
+  // const activities = [
+  //   'Workshops',
+  //   'Prayer Meeting',
+  //   'Youth Fellowship',
+  //   'Volunteer Service',
+  //   'Bible Study',
+  //   'Music & Worship',
+  // ];
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,10 +58,16 @@ export default function App() {
     setIsSubmitting(true);
     setMessage('');
 
+    // const payload = {
+    //   ...formData,
+    //   age: parseInt(formData.age) || null,
+    //   selectedOptions: selectedOptions, // ✅ this is correct
+    // };
+
     const payload = {
       ...formData,
       age: parseInt(formData.age) || null,
-      selectedOptions: selectedOptions, // ✅ this is correct
+      selectedOptions
     };
 
     try {
@@ -81,6 +91,7 @@ export default function App() {
           institution: '',
         });
         setSelectedOptions([]);
+        setResetSignal(prev => !prev)
       } else {
         throw new Error('Submission failed');
       }
@@ -248,6 +259,7 @@ export default function App() {
           </div>
 
           {/* Activities (Checkboxes) */}
+          {/*
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-3">
               Select up to 2 Activities *
@@ -278,7 +290,11 @@ export default function App() {
             <p className="text-xs text-gray-500 mt-2">
               {selectedOptions.length}/2 selected
             </p>
-          </div>
+          </div> {} */}
+
+
+          <SlotCheckboxGroup onSelectionChange={setSelectedOptions} resetSignal={resetSignal} />
+
 
           {/* Submit Button */}
           <div>
