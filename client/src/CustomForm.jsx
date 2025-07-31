@@ -8,6 +8,7 @@ export default function App() {
     email: '',
     phone: '',
     age: '',
+    gender: '',
     church: '',
     organization: '',
     invitedBy: '',
@@ -37,80 +38,82 @@ export default function App() {
     if (selectedOptions.includes(option)) {
       setSelectedOptions(selectedOptions.filter((o) => o !== option));
     } else if (selectedOptions.length < 2) {
-      setSelectedOptions([...selectedOptions, option]);
+      setSelectedOptions([...selectedOptions, option]); // ✅ Correct fix
     }
   };
+
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (selectedOptions.length !== 2) {
-    setMessage('Please select exactly 2 activities.');
-    return;
-  }
+    if (selectedOptions.length !== 2) {
+      setMessage('Please select exactly 2 activities.');
+      return;
+    }
 
-  setIsSubmitting(true);
-  setMessage('');
+    setIsSubmitting(true);
+    setMessage('');
 
-  const payload = {
-    ...formData,
-    age: parseInt(formData.age) || null,
-    options: selectedOptions, // use 'options' to match your backend schema
+    const payload = {
+      ...formData,
+      age: parseInt(formData.age) || null,
+      selectedOptions: selectedOptions, // ✅ this is correct
+    };
+
+    try {
+      const response = await fetch('https://elevate-d7qq.onrender.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setMessage(`✅ Submitted successfully, ${formData.name}!`);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          age: '',
+          gender: '', // ← Add this line
+          church: '',
+          organization: '',
+          invitedBy: '',
+          institution: '',
+        });
+        setSelectedOptions([]);
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      setMessage('❌ Submission failed. Please try again.');
+      console.error('Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  try {
-    const response = await fetch('https://elevate-d7qq.onrender.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-
-    if (response.ok) {
-      setMessage(`✅ Submitted successfully, ${formData.name}!`);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        age: '',
-        church: '',
-        organization: '',
-        invitedBy: '',
-        institution: '',
-      });
-      setSelectedOptions([]);
-    } else {
-      throw new Error('Submission failed');
-    }
-  } catch (error) {
-    setMessage('❌ Submission failed. Please try again.');
-    console.error('Error:', error);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
-const handleLogout = () => {
+  const handleLogout = () => {
     localStorage.clear(); // or remove only specific keys
     navigate('/login');
   };
 
-useEffect(() => {
-  if (message) {
-    const timer = setTimeout(() => {
-      setMessage('');
-    }, 3000);
-    return () => clearTimeout(timer);
-  }
-}, [message]);
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
       <button
-      onClick={handleLogout}
-      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 absolute top-4 right-4"
-    >
-      Logout
-    </button>
+        onClick={handleLogout}
+        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 absolute top-4 right-4"
+      >
+        Logout
+      </button>
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
         <div className="bg-indigo-600 px-6 py-8 text-center text-white">
           <h1 className="text-3xl font-bold">Event Registration</h1>
@@ -254,10 +257,9 @@ useEffect(() => {
                 <label
                   key={option}
                   className={`flex items-center space-x-3 p-3 rounded-md border cursor-pointer transition-all
-                    ${
-                      selectedOptions.includes(option)
-                        ? 'border-indigo-500 bg-indigo-50 text-indigo-800'
-                        : selectedOptions.length >= 2 && !selectedOptions.includes(option)
+                    ${selectedOptions.includes(option)
+                      ? 'border-indigo-500 bg-indigo-50 text-indigo-800'
+                      : selectedOptions.length >= 2 && !selectedOptions.includes(option)
                         ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed'
                         : 'border-gray-300 hover:border-indigo-300'
                     }`}

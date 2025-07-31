@@ -4,14 +4,14 @@ const mongoose = require("mongoose");
 const SubmissionSchema = new mongoose.Schema({
   name: String,
   email: String,
-  age: String,
+  age: Number,
   phone: String,
   gender: String,
   church: String,
   organization: String,
   invitedBy: String,
   institution: String,
-  options: [String], // checkbox selections
+  selectedOptions: [{ type: String }] 
 }, {
   timestamps: true,
 });
