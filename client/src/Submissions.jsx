@@ -67,7 +67,7 @@ export default function Submissions() {
                   <td className="px-4 py-2">{entry.organization}</td>
                   <td className="px-4 py-2">{entry.inviteby || entry.invitedBy}</td>
                   <td className="px-4 py-2">{entry.institution}</td>
-                  <td className="px-4 py-2">{entry.options?.join(', ')}</td>
+                  <td className="px-4 py-2">{entry.selectedOptions?.join(', ')}</td>
                 </tr>
               ))}
             </tbody>
