@@ -12,7 +12,7 @@ function AppRouter() {
     
       <Routes>
         {/* <Route path="/" element={<Navigate to="/login" />} /> */}
-        <Route path="/" element={<Schedule />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/home" element={<Home />} />
