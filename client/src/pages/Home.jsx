@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Links } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -243,29 +243,29 @@ const Home = () => {
                 Empowering the next generation of leaders through education, mentorship, and community engagement.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition">
+                <Link to="/" className="text-gray-400 hover:text-white transition">
                   <span className="sr-only">Facebook</span>
                   <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition">f</div>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition">
+                </Link>
+                <Link to="/" className="text-gray-400 hover:text-white transition">
                   <span className="sr-only">Instagram</span>
                   <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition">ig</div>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition">
+                </Link>
+                <Link to="/" className="text-gray-400 hover:text-white transition">
                   <span className="sr-only">Twitter</span>
                   <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition">t</div>
-                </a>
+                </Link>
               </div>
             </div>
             
             <div>
               <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="hover:text-white transition">Donate</a></li>
-                <li><a href="/form" className="hover:text-white transition">Elevate Registration</a></li>
-                <li><a href="/admin" className="hover:text-white transition">Get Involved</a></li>
-                <li><a href="/schedule" className="hover:text-white transition">Schedule</a></li>
-                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                <li><Link to="/" className="hover:text-white transition">Donate</Link></li>
+                <li><Link to="/form" className="hover:text-white transition">Elevate Registration</Link></li>
+                <li><Link to="/admin" className="hover:text-white transition">Get Involved</Link></li>
+                <li><Link to="/schedule" className="hover:text-white transition">Schedule</Link></li>
+                <li><Link to="/" className="hover:text-white transition">Contact</Link></li>
               </ul>
             </div>
             
@@ -298,9 +298,9 @@ const Home = () => {
           <div className="pt-8 border-t border-gray-800 text-center text-gray-500">
             <p>&copy; 2023 Youth Forward. All rights reserved.</p>
             <div className="mt-2 space-x-4 text-sm">
-              <a href="#" className="hover:text-white transition">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition">Terms of Service</a>
-              <a href="#" className="hover:text-white transition">Accessibility</a>
+              <Link to="/" className="hover:text-white transition">Privacy Policy</Link>
+              <Link to="/" className="hover:text-white transition">Terms of Service</Link>
+              <Link to="/" className="hover:text-white transition">Accessibility</Link>
             </div>
           </div>
         </div>
