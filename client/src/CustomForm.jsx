@@ -147,9 +147,11 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
  
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden ">
+
         <div className="bg-white px-6 py-8 text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top">
-          {/* <h1 className="text-3xl font-bold">Event Registration</h1>
-          <p className="mt-2 text-indigo-100">Please fill out the form below</p> */}
+
+        <div className="bg-indigo-600 px-6 py-8 text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center md:h-[200px] sm:h-[50px]">
+
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
@@ -313,39 +315,7 @@ export default function App() {
             />
           </div>
 
-          {/* Activities (Checkboxes) */}
-          {/*
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
-              Select up to 2 Activities *
-            </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {activities.map((option) => (
-                <label
-                  key={option}
-                  className={`flex items-center space-x-3 p-3 rounded-md border cursor-pointer transition-all
-                    ${selectedOptions.includes(option)
-                      ? 'border-indigo-500 bg-indigo-50 text-indigo-800'
-                      : selectedOptions.length >= 2 && !selectedOptions.includes(option)
-                        ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed'
-                        : 'border-gray-300 hover:border-indigo-300'
-                    }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={selectedOptions.includes(option)}
-                    onChange={() => handleCheckboxChange(option)}
-                    disabled={selectedOptions.length >= 2 && !selectedOptions.includes(option)}
-                    className="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-500"
-                  />
-                  <span className="font-medium">{option}</span>
-                </label>
-              ))}
-            </div>
-            <p className="text-xs text-gray-500 mt-2">
-              {selectedOptions.length}/2 selected
-            </p>
-          </div> {} */}
+         
 
 
           <SlotCheckboxGroup onSelectionChange={setSelectedOptions} resetSignal={resetSignal} />
@@ -408,6 +378,7 @@ export default function App() {
             </div>
           )}
         </form>
+      </div>
       </div>
     </div>
   );
