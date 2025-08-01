@@ -11,10 +11,8 @@ const cloudinary = require("cloudinary").v2;
 const Submission = require("./models/submission");
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
 
-// ❌ DO NOT use express.json() for FormData file uploads
-// app.use(express.json()); // Remove this line when using multer with file uploads
 
 // ✅ Cloudinary config
 cloudinary.config({
@@ -62,16 +60,16 @@ app.post("/submit", upload.single("image"), async (req, res) => {
     const parsedOptions = JSON.parse(selectedOptions || "[]");
 
     const newSubmission = new Submission({
-      name,
+       name,
       email,
       phone,
-      age: parseInt(age), // convert to number
+      age,
       gender,
       church,
       invitedBy,
       institution,
       selectedOptions: parsedOptions,
-      imageUrl: req.file?.path || ""
+      imageUrl: req.file?.path || "",
     });
 
     await newSubmission.save();
