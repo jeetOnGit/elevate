@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        myfont: ['fistfont', 'sans-serif'],
+        firstfont: ['firstfont', 'sans-serif'],
+        secondfont: ['secondfont', 'sans-serif'],
+        secondfontItalics: ['secondfontItalics', 'sans-serif'],
       },
     },
   },

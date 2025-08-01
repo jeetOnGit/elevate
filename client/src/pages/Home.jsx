@@ -10,7 +10,7 @@ const Home = () => {
       <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/heroBg.png')] bg-no-repeat bg-cover bg-center">
         
 
-        <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
+        <div className="container mx-auto px-6 py-24 md:py-32 relative z-10 max-[420px]:py-15 max-[420px]:px-3">
           <div className=" mx-auto text-center">
             {/* <img className='w-[500px]' src="images/heroText.png" alt="" /> */}
 
