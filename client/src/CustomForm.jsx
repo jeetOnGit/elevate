@@ -2,9 +2,11 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SlotCheckboxGroup from './Components/SlotCheckboxGroup';
+import { useRef } from 'react';
 
 
 export default function App() {
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,15 +14,16 @@ export default function App() {
     age: '',
     gender: '',
     church: '',
-    organization: '',
     invitedBy: '',
     institution: '',
+    image: null,
   });
 
   const [selectedOptions, setSelectedOptions] = useState([]);
-const [resetSignal, setResetSignal] = useState(false);
+  const [resetSignal, setResetSignal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
   // const activities = [
@@ -42,7 +45,7 @@ const [resetSignal, setResetSignal] = useState(false);
     if (selectedOptions.includes(option)) {
       setSelectedOptions(selectedOptions.filter((o) => o !== option));
     } else if (selectedOptions.length < 2) {
-      setSelectedOptions([...selectedOptions, option]); // ✅ Correct fix
+      setSelectedOptions([...selectedOptions, option]);
     }
   };
 
@@ -50,58 +53,88 @@ const [resetSignal, setResetSignal] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const { name, email, phone, age, gender, church, invitedBy, institution, image } = formData;
+
+    // Check if any field is empty
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !phone.trim() ||
+      !age ||
+      !gender ||
+      !church.trim() ||
+      !invitedBy.trim() ||
+      !institution.trim()
+    ) {
+      setMessage("❌ Please fill in all required fields.");
+      return;
+    }
+
+    // Check if exactly 2 options are selected (slot checkbox)
     if (selectedOptions.length !== 2) {
-      setMessage('Please select exactly 2 activities.');
+      setMessage("❌ Please select exactly 2 activities (1 per slot).");
+      return;
+    }
+
+    // Check if image is uploaded
+    if (!image) {
+      setMessage("❌ Please upload your payment screenshot.");
       return;
     }
 
     setIsSubmitting(true);
-    setMessage('');
+    setMessage("");
 
-    // const payload = {
-    //   ...formData,
-    //   age: parseInt(formData.age) || null,
-    //   selectedOptions: selectedOptions, // ✅ this is correct
-    // };
-
-    const payload = {
-      ...formData,
-      age: parseInt(formData.age) || null,
-      selectedOptions
-    };
 
     try {
-      const response = await fetch('https://elevate-d7qq.onrender.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+      const formPayload = new FormData();
+      formPayload.append("name", name);
+      formPayload.append("email", email);
+      formPayload.append("phone", phone);
+      formPayload.append("age", age);
+      formPayload.append("gender", gender);
+      formPayload.append("church", church);
+      formPayload.append("invitedBy", invitedBy);
+      formPayload.append("institution", institution);
+      formPayload.append("selectedOptions", JSON.stringify(selectedOptions));
+      formPayload.append("image", image);
+
+
+      const response = await fetch("https://elevate-d7qq.onrender.com/submit", {
+        method: "POST",
+        body: formPayload,
       });
 
       if (response.ok) {
         setMessage(`✅ Submitted successfully, ${formData.name}!`);
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          age: '',
-          gender: '', // ← Add this line
-          church: '',
-          organization: '',
-          invitedBy: '',
-          institution: '',
+          name: "",
+          email: "",
+          phone: "",
+          age: "",
+          gender: "",
+          church: "",
+          invitedBy: "",
+          institution: "",
+          image: null,
         });
         setSelectedOptions([]);
-        setResetSignal(prev => !prev)
+        setResetSignal((prev) => !prev);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = null;
+        }
       } else {
-        throw new Error('Submission failed');
+        throw new Error("Submission failed");
       }
     } catch (error) {
-      setMessage('❌ Submission failed. Please try again.');
-      console.error('Error:', error);
+      setMessage("❌ Submission failed. Please try again.");
+      console.error("Error:", error);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+
 
   const handleLogout = () => {
     localStorage.clear(); // or remove only specific keys
@@ -119,16 +152,16 @@ const [resetSignal, setResetSignal] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-      <button
+      {/* <button
         onClick={handleLogout}
         className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 absolute top-4 right-4"
       >
         Logout
-      </button>
-      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
-        <div className="bg-indigo-600 px-6 py-8 text-center text-white">
-          <h1 className="text-3xl font-bold">Event Registration</h1>
-          <p className="mt-2 text-indigo-100">Please fill out the form below</p>
+      </button> */}
+      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden ">
+        <div className="bg-indigo-600 px-6 py-8 text-center text-white bg-[url(images/formBg.png)] bg-no-repeat bg-cover bg-center md:h-[200px] sm:h-[50px]">
+          {/* <h1 className="text-3xl font-bold">Event Registration</h1>
+          <p className="mt-2 text-indigo-100">Please fill out the form below</p> */}
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
@@ -164,22 +197,6 @@ const [resetSignal, setResetSignal] = useState(false);
             />
           </div>
 
-          {/* Phone */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Phone *
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="+234 801 234 5678"
-            />
-          </div>
-
           {/* Age */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -198,10 +215,55 @@ const [resetSignal, setResetSignal] = useState(false);
             />
           </div>
 
+
+          {/* Gender */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Gender *
+            </label>
+            <div className="flex gap-6">
+              {["Male", "Female", "Other"].map((genderOption) => (
+                <label
+                  key={genderOption}
+                  className="inline-flex items-center space-x-2 text-gray-700"
+                >
+                  <input
+                    type="radio"
+                    name="gender"
+                    value={genderOption}
+                    checked={formData.gender === genderOption}
+                    onChange={handleChange}
+                    required
+                    className="text-indigo-600 focus:ring-indigo-500"
+                  />
+                  <span>{genderOption}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+
+          {/* Phone */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Phone *
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="+234 801 234 5678"
+            />
+          </div>
+
+
           {/* Church */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Church
+              Church or Organization*
             </label>
             <input
               type="text"
@@ -210,11 +272,28 @@ const [resetSignal, setResetSignal] = useState(false);
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="Your local church"
+              required
+            />
+          </div>
+
+          {/* Who Invited */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Who Invited You?*
+            </label>
+            <input
+              type="text"
+              name="invitedBy"
+              value={formData.invitedBy}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="e.g. John Doe"
+              required
             />
           </div>
 
           {/* Organization */}
-          <div>
+          {/* <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Organization
             </label>
@@ -226,27 +305,14 @@ const [resetSignal, setResetSignal] = useState(false);
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="e.g. Youth Fellowship, NGO"
             />
-          </div>
+          </div> */}
 
-          {/* Who Invited */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Who Invited You?
-            </label>
-            <input
-              type="text"
-              name="invitedBy"
-              value={formData.invitedBy}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="e.g. John Doe"
-            />
-          </div>
+
 
           {/* Institution */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Institution (School/Workplace)
+              School / College / Institution *
             </label>
             <input
               type="text"
@@ -255,6 +321,7 @@ const [resetSignal, setResetSignal] = useState(false);
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               placeholder="e.g. ABC University"
+              required
             />
           </div>
 
@@ -296,6 +363,33 @@ const [resetSignal, setResetSignal] = useState(false);
           <SlotCheckboxGroup onSelectionChange={setSelectedOptions} resetSignal={resetSignal} />
 
 
+
+          {/* Pay online */}
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Pay 499 here, till 08/09/2025*
+            </label>
+            <img src="images/pay.jpeg" alt="" />
+          </div>
+
+          {/* Image Upload */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Upload payment screenshot*
+            </label>
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              required
+              ref={fileInputRef}
+              onChange={(e) => setFormData(prev => ({ ...prev, image: e.target.files[0] }))}
+              className="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+            />
+          </div>
+
+
           {/* Submit Button */}
           <div>
             <button
@@ -310,6 +404,8 @@ const [resetSignal, setResetSignal] = useState(false);
               {isSubmitting ? 'Submitting...' : 'Submit Registration'}
             </button>
           </div>
+
+
 
           {/* Message */}
           {message && (
