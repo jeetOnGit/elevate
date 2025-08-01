@@ -11,7 +11,9 @@ const cloudinary = require("cloudinary").v2;
 const Submission = require("./models/submission");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*", // Replace with frontend domain later
+}));
 
 // ❌ DO NOT use express.json() for FormData file uploads
 // app.use(express.json()); // Remove this line when using multer with file uploads
