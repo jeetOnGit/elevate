@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center">
+      <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/heroBg.png')] bg-no-repeat bg-cover bg-center">
         
         <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
           <div className=" mx-auto text-center">
