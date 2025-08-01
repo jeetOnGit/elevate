@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 
 const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
   const slotOptions = {
-    slot1: ["Workshops", "Prayer Meeting"],
-    slot2: ["Talent Show", "Bible Quiz"],
-    slot3: ["Dance Night", "Campfire"]
+    slot1: ["Music", "Chess"],
+    slot2: ["Dancing", "Extempore"],
+    slot3: ["Drama", "Carrom"],
+    slot4: ["Reels Editing", "Painting"]
   };
 
   const initialState = {
     slot1: "",
     slot2: "",
-    slot3: ""
+    slot3: "",
+    slot4: ""
   };
 
   const [slotSelections, setSlotSelections] = useState(initialState);

@@ -50,7 +50,7 @@ export default function Submissions() {
                 <th className="px-4 py-2">Phone</th>
                 <th className="px-4 py-2">Age</th>
                 <th className="px-4 py-2">Church</th>
-                <th className="px-4 py-2">Organization</th>
+                <th className="px-4 py-2">Gender</th>
                 <th className="px-4 py-2">Invited By</th>
                 <th className="px-4 py-2">Institution</th>
                 <th className="px-4 py-2">Activities</th>
@@ -64,7 +64,7 @@ export default function Submissions() {
                   <td className="px-4 py-2">{entry.phone}</td>
                   <td className="px-4 py-2">{entry.age}</td>
                   <td className="px-4 py-2">{entry.church}</td>
-                  <td className="px-4 py-2">{entry.organization}</td>
+                  <td className="px-4 py-2">{entry.gender}</td>
                   <td className="px-4 py-2">{entry.inviteby || entry.invitedBy}</td>
                   <td className="px-4 py-2">{entry.institution}</td>
                   <td className="px-4 py-2">{entry.selectedOptions?.join(', ')}</td>

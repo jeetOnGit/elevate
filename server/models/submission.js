@@ -11,7 +11,11 @@ const SubmissionSchema = new mongoose.Schema({
   organization: String,
   invitedBy: String,
   institution: String,
-  selectedOptions: [{ type: String }] 
+  selectedOptions: [{ type: String }],
+  imageUrl: {
+  type: String,
+  required: false,
+},
 }, {
   timestamps: true,
 });
