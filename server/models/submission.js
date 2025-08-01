@@ -1,4 +1,3 @@
-// models/Submission.js
 const mongoose = require("mongoose");
 
 const SubmissionSchema = new mongoose.Schema({
@@ -8,14 +7,13 @@ const SubmissionSchema = new mongoose.Schema({
   phone: String,
   gender: String,
   church: String,
-  organization: String,
   invitedBy: String,
   institution: String,
   selectedOptions: [{ type: String }],
   imageUrl: {
-  type: String,
-  required: false,
-},
+    type: String,
+    required: false,
+  },
 }, {
   timestamps: true,
 });
