@@ -92,7 +92,10 @@ export default function App() {
       formPayload.append("selectedOptions", JSON.stringify(selectedOptions));
       formPayload.append("image", image);
 
-
+for (let [key, value] of formPayload.entries()) {
+  console.log(`${key}:`, value);
+}
+// https://elevate-d7qq.onrender.com
       const response = await fetch("https://elevate-d7qq.onrender.com/submit", {
         method: "POST",
         body: formPayload,
