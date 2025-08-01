@@ -43,7 +43,7 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
   return (
     <div className="space-y-6">
       <h3 className="block text-sm font-semibold text-gray-700 mb-2">
-        Choose any 2 options from any slots*
+        Choose any 2 options from 4 slots*
       </h3>
       <div className="flex flex-col gap-2">
         {Object.entries(slotOptions).map(([slotKey, options], index) => (
@@ -51,7 +51,7 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
             <h3 className="block text-sm font-semibold text-gray-700 mb-2">
               Slot {index + 1}
             </h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 max-[420px]:grid-cols-1">
               {options.map((option) => {
                 const isSelected = slotSelections[slotKey] === option;
                 const slotHasSelection = slotSelections[slotKey] !== "";

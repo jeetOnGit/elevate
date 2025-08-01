@@ -1,15 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import '../index.css'
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url(images/heroBg.png)] bg-no-repeat bg-cover bg-center">
-        
+      <header className="relative bg-white text-white overflow-hidden bg-[url('/images/heroBg.png')] bg-no-repeat bg-cover bg-center">
+
         <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
           <div className=" mx-auto text-center">
-            <img className='w-[500px]' src="images/heroText.png" alt="" />
+            {/* <img className='w-[500px]' src="images/heroText.png" alt="" /> */}
+
+            <h1 className='firstfont text-[#ff9700] text-5xl max-[420px]:text-3xl !leading-10 max-[420px]:!leading-5'>ELEVATE 2.0 <span className='max-[420px]:text-xs block text-white font-italic text-sm'>Level up your faith</span></h1>
+
+            <div className='leading-4 mt-3'>
+              <h3 className='secondfont text-7xl max-[420px]:text-xl'>INTER CHURCH TALENT CONTEST</h3>
+              <p className='secondfontItalics'>Not just gifted, but called</p>
+            </div>
+
+            <button className='text-white bg-[#ff9700] firstfont text-xs py-2 px-3 rounded border mt-5 hover:bg-transparent hover:border'><Link to='/form'>Register Yourself</Link></button>
           </div>
         </div>
       </header>
@@ -23,17 +32,17 @@ const Home = () => {
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              <span className="font-semibold text-blue-600">Youth Forward</span> is a non-profit organization dedicated to empowering young people aged 15-25 
-              through education, leadership development, and community engagement programs. Since our 
+              <span className="font-semibold text-blue-600">Youth Forward</span> is a non-profit organization dedicated to empowering young people aged 15-25
+              through education, leadership development, and community engagement programs. Since our
               founding in 2010, we've impacted over 15,000 young lives across the country.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Our mission is to provide youth with the tools, resources, and support they need to reach 
-              their full potential and become active contributors to society. We focus on creating 
-              inclusive spaces where young people can develop skills, build confidence, and make 
+              Our mission is to provide youth with the tools, resources, and support they need to reach
+              their full potential and become active contributors to society. We focus on creating
+              inclusive spaces where young people can develop skills, build confidence, and make
               meaningful connections.
             </p>
           </div>
@@ -52,7 +61,7 @@ const Home = () => {
             </p>
             <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Program 1 */}
             <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 overflow-hidden">
@@ -63,13 +72,13 @@ const Home = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Leadership Academy</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  A 12-week program that develops leadership skills through workshops, mentorship, 
-                  and community projects. Participants learn public speaking, team building, and 
+                  A 12-week program that develops leadership skills through workshops, mentorship,
+                  and community projects. Participants learn public speaking, team building, and
                   project management.
                 </p>
               </div>
             </div>
-            
+
             {/* Program 2 */}
             <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 overflow-hidden">
               <div className="h-3 bg-gradient-to-r from-green-500 to-teal-600"></div>
@@ -79,12 +88,12 @@ const Home = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Career Readiness</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Equips youth with essential job skills including resume writing, interview techniques, 
+                  Equips youth with essential job skills including resume writing, interview techniques,
                   financial literacy, and workplace etiquette through hands-on training and industry connections.
                 </p>
               </div>
             </div>
-            
+
             {/* Program 3 */}
             <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 overflow-hidden">
               <div className="h-3 bg-gradient-to-r from-purple-500 to-pink-600"></div>
@@ -94,7 +103,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Creative Expression</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Arts-based programs that use music, visual arts, and performance to help youth express 
+                  Arts-based programs that use music, visual arts, and performance to help youth express
                   themselves, build confidence, and explore their identities in a supportive environment.
                 </p>
               </div>
@@ -115,7 +124,7 @@ const Home = () => {
             </p>
             <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">15,000+</div>
@@ -146,14 +155,14 @@ const Home = () => {
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Testimonial 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg relative">
               <div className="text-6xl text-blue-100 absolute top-4 right-6 select-none">"</div>
               <p className="text-gray-700 text-lg mb-6 relative z-10 pl-4 border-l-4 border-blue-200">
-                "The Leadership Academy changed my life. I went from being too shy to speak in class 
-                to leading community projects and presenting at conferences. This organization 
+                "The Leadership Academy changed my life. I went from being too shy to speak in class
+                to leading community projects and presenting at conferences. This organization
                 believed in me when I didn't believe in myself."
               </p>
               <div className="flex items-center">
@@ -166,13 +175,13 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Testimonial 2 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg relative">
               <div className="text-6xl text-green-100 absolute top-4 right-6 select-none">"</div>
               <p className="text-gray-700 text-lg mb-6 relative z-10 pl-4 border-l-4 border-green-200">
-                "As a parent, I've seen incredible growth in my son since he joined the Career 
-                Readiness program. He's more focused, has clear goals, and actually talks about 
+                "As a parent, I've seen incredible growth in my son since he joined the Career
+                Readiness program. He's more focused, has clear goals, and actually talks about
                 his future with excitement!"
               </p>
               <div className="flex items-center">
@@ -196,7 +205,7 @@ const Home = () => {
             Join Our Movement
           </h2>
           <p className="text-xl mb-10 opacity-90 max-w-3xl mx-auto">
-            Whether you're a young person looking for opportunities, a volunteer wanting to make a difference, 
+            Whether you're a young person looking for opportunities, a volunteer wanting to make a difference,
             or a partner interested in supporting youth development, there are many ways to get involved.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
@@ -237,7 +246,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
               <ul className="space-y-3">
@@ -248,7 +257,7 @@ const Home = () => {
                 <li><Link to="/" className="hover:text-white transition">Contact</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold text-white mb-6">Contact Us</h4>
               <ul className="space-y-3">
@@ -274,7 +283,7 @@ const Home = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="pt-8 border-t border-gray-800 text-center text-gray-500">
             <p>&copy; 2023 Youth Forward. All rights reserved.</p>
             <div className="mt-2 space-x-4 text-sm">

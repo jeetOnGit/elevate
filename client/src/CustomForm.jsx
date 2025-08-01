@@ -26,14 +26,7 @@ export default function App() {
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
-  // const activities = [
-  //   'Workshops',
-  //   'Prayer Meeting',
-  //   'Youth Fellowship',
-  //   'Volunteer Service',
-  //   'Bible Study',
-  //   'Music & Worship',
-  // ];
+
 
 
   const handleChange = (e) => {
@@ -152,14 +145,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-      {/* <button
-        onClick={handleLogout}
-        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 absolute top-4 right-4"
-      >
-        Logout
-      </button> */}
+ 
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden ">
-        <div className="bg-indigo-600 px-6 py-8 text-center text-white bg-[url(images/formBg.png)] bg-no-repeat bg-cover bg-center md:h-[200px] sm:h-[50px]">
+        <div className="bg-white px-6 py-8 text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top">
           {/* <h1 className="text-3xl font-bold">Event Registration</h1>
           <p className="mt-2 text-indigo-100">Please fill out the form below</p> */}
         </div>
@@ -222,7 +210,7 @@ export default function App() {
               Gender *
             </label>
             <div className="flex gap-6">
-              {["Male", "Female", "Other"].map((genderOption) => (
+              {["Male", "Female"].map((genderOption) => (
                 <label
                   key={genderOption}
                   className="inline-flex items-center space-x-2 text-gray-700"

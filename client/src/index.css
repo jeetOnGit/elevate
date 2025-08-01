@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ✅ Correct @font-face syntax */
+@font-face {
+  font-family: "firstfont";
+  src: url('./Aerospace.otf') format('opentype'); /* use 'opentype' for .otf files */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Optional utility class if you want to apply manually */
+.firstfont {
+  font-family: "firstfont", sans-serif;
+}
+
+@font-face {
+  font-family: "secondfont";
+  src: url('./zumm.otf') format('opentype'); /* use 'opentype' for .otf files */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Optional utility class if you want to apply manually */
+.secondfont {
+  font-family: "secondfont", sans-serif;
+}
+
+@font-face {
+  font-family: "secondfontItalics";
+  src: url('./zummI.otf') format('opentype'); /* use 'opentype' for .otf files */
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Optional utility class if you want to apply manually */
+.secondfontItalics {
+  font-family: "secondfontItalics", sans-serif;
+}
