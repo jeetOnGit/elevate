@@ -14,7 +14,7 @@ const Home = () => {
           <div className=" mx-auto text-center">
             {/* <img className='w-[500px]' src="images/heroText.png" alt="" /> */}
 
-            <h1 className='font-['firstfont'] text-[#ff9700] text-5xl max-[420px]:text-3xl !leading-10 max-[420px]:!leading-5'>ELEVATE 2.0 <span className='max-[420px]:text-xs block text-white font-italic text-sm'>Level up your faith</span></h1>
+            <h1 className='font-firstfont text-[#ff9700] text-5xl max-[420px]:text-3xl !leading-10 max-[420px]:!leading-5'>ELEVATE 2.0 <span className='max-[420px]:text-xs block text-white font-italic text-sm'>Level up your faith</span></h1>
 
             <div className='leading-4 mt-3'>
               <h3 className='secondfont text-7xl max-[420px]:text-xl'>INTER CHURCH TALENT CONTEST</h3>
