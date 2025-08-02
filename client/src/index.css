@@ -5,7 +5,7 @@
 /* ✅ Correct @font-face syntax */
 @font-face {
   font-family: "firstfont";
-  src: url('./Aerospace.otf') format('opentype'); /* use 'opentype' for .otf files */
+  src: url('/fonts/Aerospace.otf') format('opentype'); /* use 'opentype' for .otf files */
   font-weight: normal;
   font-style: normal;
 }
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: "secondfont";
-  src: url('./zumm.otf') format('opentype'); /* use 'opentype' for .otf files */
+  src: url('/fonts/zumm.otf') format('opentype'); /* use 'opentype' for .otf files */
   font-weight: normal;
   font-style: normal;
 }
@@ -29,7 +29,7 @@
 
 @font-face {
   font-family: "secondfontItalics";
-  src: url('./zummI.otf') format('opentype'); /* use 'opentype' for .otf files */
+  src: url('/fonts/zummI.otf') format('opentype'); /* use 'opentype' for .otf files */
   font-weight: normal;
   font-style: italic;
 }
