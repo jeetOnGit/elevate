@@ -46,8 +46,8 @@ mongoose
 // ✅ Submit Route
 app.post("/submit", upload.single("image"), async (req, res) => {
   try {
-    console.log("Body Data:", req.body);
-    console.log("Uploaded File:", req.file);
+    console.log("📦 Body:", req.body);
+    console.log("🖼️ File:", req.file);
 
     const {
       name,
@@ -58,8 +58,21 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       church,
       invitedBy,
       institution,
-      selectedOptions,
+      selectedOptions
     } = req.body;
+
+    // 🔐 Safe parsing
+    let parsedOptions = [];
+    try {
+      parsedOptions = typeof selectedOptions === "string" 
+        ? JSON.parse(selectedOptions) 
+        : Array.isArray(selectedOptions) 
+          ? selectedOptions 
+          : [];
+    } catch (e) {
+      console.error("❌ selectedOptions parse failed:", e);
+      return res.status(400).json({ message: "Invalid selectedOptions format" });
+    }
 
     const newSubmission = new Submission({
       name,
@@ -70,17 +83,19 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       church,
       invitedBy,
       institution,
-      selectedOptions: JSON.parse(selectedOptions),
+      selectedOptions: parsedOptions,
       imageUrl: req.file?.path || "",
     });
 
     await newSubmission.save();
-    res.status(201).json({ message: "Form submitted successfully" });
+    return res.status(201).json({ message: "Form submitted successfully" });
+
   } catch (error) {
-    console.error("Submission error:", error);
-    res.status(500).json({ message: "Error while submitting", error });
+    console.error("🔥 Server error:", error);
+    return res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 });
+
 
 // ✅ Get all submissions
 app.get("/submissions", async (req, res) => {
