@@ -48,7 +48,6 @@ export default function App() {
 
     const { name, email, phone, age, gender, church, invitedBy, institution, image } = formData;
 
-    // Check if any field is empty
     if (
       !name.trim() ||
       !email.trim() ||
