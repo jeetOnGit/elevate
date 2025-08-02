@@ -12,7 +12,8 @@ const Submission = require("./models/submission");
 
 const app = express();
 // app.use(cors({ origin: "https://nexus-iyfc.netlify.app/", methods: ["GET", "POST"] }));
-app.use(cors());
+app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
+// app.use(cors());
 // app.use(cors());
 
 // ✅ Cloudinary config
