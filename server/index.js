@@ -13,7 +13,6 @@ const Submission = require("./models/submission");
 const app = express();
 app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
 
-
 // ✅ Cloudinary config
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -33,11 +32,13 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 
 // ✅ MongoDB connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // ✅ Submit Route
 app.post("/submit", upload.single("image"), async (req, res) => {
@@ -54,13 +55,11 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       church,
       invitedBy,
       institution,
-      selectedOptions
+      selectedOptions,
     } = req.body;
 
-    const parsedOptions = JSON.parse(selectedOptions || "[]");
-
     const newSubmission = new Submission({
-       name,
+      name,
       email,
       phone,
       age,
@@ -68,13 +67,12 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       church,
       invitedBy,
       institution,
-      selectedOptions: parsedOptions,
+      selectedOptions: JSON.parse(selectedOptions),
       imageUrl: req.file?.path || "",
     });
 
     await newSubmission.save();
     res.status(201).json({ message: "Form submitted successfully" });
-
   } catch (error) {
     console.error("Submission error:", error);
     res.status(500).json({ message: "Error while submitting", error });
