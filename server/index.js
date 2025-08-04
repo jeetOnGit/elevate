@@ -1,4 +1,3 @@
-// index.js
 const express = require("express");
 const axios = require("axios");
 const mongoose = require("mongoose");
@@ -12,10 +11,7 @@ const cloudinary = require("cloudinary").v2;
 const Submission = require("./models/submission");
 
 const app = express();
-// app.use(cors({ origin: "https://nexus-iyfc.netlify.app/", methods: ["GET", "POST"] }));
 app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
-// app.use(cors());
-// app.use(cors());
 
 // ✅ Cloudinary config
 cloudinary.config({
@@ -32,15 +28,11 @@ const storage = new CloudinaryStorage({
     allowed_formats: ["jpg", "jpeg", "png"],
   },
 });
-
 const upload = multer({ storage });
 
 // ✅ MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -59,16 +51,16 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       church,
       invitedBy,
       institution,
-      selectedOptions
+      selectedOptions,
     } = req.body;
 
-    // 🔐 Safe parsing
     let parsedOptions = [];
     try {
-      parsedOptions = typeof selectedOptions === "string" 
-        ? JSON.parse(selectedOptions) 
-        : Array.isArray(selectedOptions) 
-          ? selectedOptions 
+      parsedOptions =
+        typeof selectedOptions === "string"
+          ? JSON.parse(selectedOptions)
+          : Array.isArray(selectedOptions)
+          ? selectedOptions
           : [];
     } catch (e) {
       console.error("❌ selectedOptions parse failed:", e);
@@ -89,29 +81,30 @@ app.post("/submit", upload.single("image"), async (req, res) => {
     });
 
     await newSubmission.save();
-    return res.status(201).json({ message: "Form submitted successfully" });
 
+    // ✅ Send to Google Sheet
+    await axios.post(
+      "https://script.google.com/macros/s/AKfycbxAXyMrRnRE7D4WixePAaCL-mlpv2m8niKdgoWj8oPAnziMICDsoDs_DUw1J5MZQspQ/exec",
+      {
+        name,
+        email,
+        phone,
+        age,
+        gender,
+        church,
+        invitedBy,
+        institution,
+        selectedOptions: parsedOptions,
+        imageUrl: req.file?.path || "",
+      }
+    );
+
+    return res.status(201).json({ message: "Form submitted successfully" });
   } catch (error) {
     console.error("🔥 Server error:", error);
     return res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 });
-
-
-// Add inside your /submit route AFTER successful save:
-await axios.post("https://script.google.com/macros/s/AKfycbxAXyMrRnRE7D4WixePAaCL-mlpv2m8niKdgoWj8oPAnziMICDsoDs_DUw1J5MZQspQ/exec", {
-  name,
-  email,
-  phone,
-  age,
-  gender,
-  church,
-  invitedBy,
-  institution,
-  selectedOptions: JSON.parse(selectedOptions),
-  imageUrl: req.file?.path || "",
-});
-
 
 // ✅ Get all submissions
 app.get("/submissions", async (req, res) => {
