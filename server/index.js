@@ -1,5 +1,6 @@
 // index.js
 const express = require("express");
+const axios = require("axios");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
@@ -94,6 +95,21 @@ app.post("/submit", upload.single("image"), async (req, res) => {
     console.error("🔥 Server error:", error);
     return res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
+});
+
+
+// Add inside your /submit route AFTER successful save:
+await axios.post("https://script.google.com/macros/s/AKfycbxAXyMrRnRE7D4WixePAaCL-mlpv2m8niKdgoWj8oPAnziMICDsoDs_DUw1J5MZQspQ/exec", {
+  name,
+  email,
+  phone,
+  age,
+  gender,
+  church,
+  invitedBy,
+  institution,
+  selectedOptions: JSON.parse(selectedOptions),
+  imageUrl: req.file?.path || "",
 });
 
 
