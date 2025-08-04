@@ -33,12 +33,12 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               Who We Are
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-[#ff9700] mx-auto mb-8"></div>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              <span className="font-semibold text-blue-600">Youth Forward</span> is a non-profit organization dedicated to empowering young people aged 15-25
+              <span className="font-semibold text-[#ff9700]">Youth for christ</span> is a non-profit organization dedicated to empowering young people aged 15-25
               through education, leadership development, and community engagement programs. Since our
               founding in 2010, we've impacted over 15,000 young lives across the country.
             </p>
@@ -62,7 +62,7 @@ const Home = () => {
             <p className="text-gray-600 text-lg">
               Comprehensive initiatives designed to nurture talent and leadership
             </p>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
+            <div className="w-24 h-1 bg-[#ff9700] mx-auto mt-6"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
