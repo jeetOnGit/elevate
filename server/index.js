@@ -84,7 +84,7 @@ app.post("/submit", upload.single("image"), async (req, res) => {
 
     // ✅ Send to Google Sheet
     await axios.post(
-      "https://script.google.com/macros/s/AKfycbxAXyMrRnRE7D4WixePAaCL-mlpv2m8niKdgoWj8oPAnziMICDsoDs_DUw1J5MZQspQ/exec",
+      "https://script.google.com/macros/s/AKfycbyMXsQ-1b0aUlzMOPdJkl90KWCpRw-keiMPavel7U8KuqNFRvn1ftI55liz5DI-bUKE/exec",
       {
         name,
         email,
