@@ -92,7 +92,7 @@ export default function App() {
       formPayload.append("image", image);
 
 
-// https://elevate-d7qq.onrender.com
+      // https://elevate-d7qq.onrender.com
       const response = await fetch("https://elevate-d7qq.onrender.com/submit", {
         method: "POST",
         body: formPayload,
@@ -116,6 +116,7 @@ export default function App() {
         if (fileInputRef.current) {
           fileInputRef.current.value = null;
         }
+
       } else {
         throw new Error("Submission failed");
       }
@@ -130,7 +131,7 @@ export default function App() {
 
 
   const handleLogout = () => {
-    localStorage.clear(); 
+    localStorage.clear();
     navigate('/login');
   };
 
@@ -145,12 +146,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
- 
+
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg">
 
         <div className="">
 
           <div className="bg-white text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top w-full">
+          </div>
+          <div className='p-8 space-y-6'>
+            <h3 className='font-firstfont'>RULES FOR ELEVET 2.0</h3>
+
+            <p>Must join our community to get daily updates</p>
           </div>
 
           <form onSubmit={handleSubmit} className="p-8 space-y-6">
@@ -191,17 +197,20 @@ export default function App() {
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Age *
               </label>
-              <input
-                type="number"
+              <select
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
                 required
-                min="12"
-                max="120"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="e.g. 25"
-              />
+              >
+                <option value="">Select Age</option>
+                {Array.from({ length: 13 }, (_, i) => 14 + i).map((ageValue) => (
+                  <option key={ageValue} value={ageValue}>
+                    {ageValue}
+                  </option>
+                ))}
+              </select>
             </div>
 
 
@@ -303,7 +312,7 @@ export default function App() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Pay 499 here, till 08/09/2025*
+                Pay 399 here, Before 08/09/2025*
               </label>
               <img src="images/pay.jpeg" alt="" />
             </div>
