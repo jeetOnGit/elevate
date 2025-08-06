@@ -157,6 +157,7 @@ export default function App() {
             <h3 className='font-firstfont'>RULES FOR ELEVET 2.0</h3>
 
             <p>Must join our community to get daily updates</p>
+            <p>Must join our community to get daily updates</p>
           </div>
 
           <form onSubmit={handleSubmit} className="p-8 space-y-6">

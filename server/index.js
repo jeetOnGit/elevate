@@ -106,7 +106,6 @@ app.post("/submit", upload.single("image"), async (req, res) => {
   }
 });
 
-
 // ✅ Get all submissions
 app.get("/submissions", async (req, res) => {
   try {
