@@ -153,7 +153,7 @@ export default function App() {
 
           <div className="bg-gray-100 text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[778px]:bg-top max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top w-full">
           </div>
-          <section className="bg-gray-100 py-12 px-6 md:px-16">
+          <section className="bg-gray-100 py-2 px-6 md:px-16">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Rules & Guidelines</h2>
               <ul className="space-y-6 text-gray-700 text-base leading-relaxed">
