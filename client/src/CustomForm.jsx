@@ -153,12 +153,32 @@ export default function App() {
 
           <div className="bg-white text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top w-full">
           </div>
-          <div className='p-8 space-y-6'>
-            <h3 className='font-firstfont'>RULES FOR ELEVET 2.0</h3>
+          <section className="bg-gray-100 py-12 px-6 md:px-16">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Rules & Guidelines</h2>
+              <ul className="space-y-6 text-gray-700 text-base leading-relaxed">
+                <li className="">
+                  <strong>1. Join Our WhatsApp Community:</strong> Stay updated with event announcements, timings, and changes by joining our official WhatsApp group.
+                </li>
+                <li className="">
+                  <strong>2. Drama Competition – Background Sound:</strong> Participants must send their own background audio in advance. Supported format: MP3.
+                </li>
+                <li className="">
+                  <strong>3. Dance Performance – Music Track:</strong> Bring your own song (on your phone or pen drive). Internet will not be provided.
+                </li>
+                <li className="">
+                  <strong>4. Singing Performance – Instrument:</strong> Bring your own instrument if required. No instruments will be provided on-site.
+                </li>
+                <li className="">
+                  <strong>5. Video Editing Competition:</strong> Bring your phone with a video editing app installed. No editing devices will be provided.
+                </li>
+                <li className="">
+                  <strong>6. Painting Competition – Art Tools:</strong> All participants must bring their own art materials (brushes, colors, canvas, etc.). Only space will be provided.
+                </li>
+              </ul>
+            </div>
+          </section>
 
-            <p>Must join our community to get daily updates</p>
-            <p>Must join our community to get daily updates</p>
-          </div>
 
           <form onSubmit={handleSubmit} className="p-8 space-y-6">
             {/* Name */}
@@ -321,7 +341,7 @@ export default function App() {
             {/* Image Upload */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Upload payment screenshot*
+                Upload Payment Screenshot*
               </label>
               <input
                 type="file"

@@ -17,14 +17,20 @@
   
 
 //   const events = [
-//     { time: `${baseDate}T08:00`, title: 'Registration', description: 'Entry and welcome kit' },
-//     { time: `${baseDate}T09:00`, title: 'Opening Ceremony', description: 'Inauguration and prayer' },
-//     { time: `${baseDate}T10:30`, title: 'Singing Competition', description: 'Solo and group performances' },
-//     { time: `${baseDate}T12:00`, title: 'Drama Show', description: 'Stage play performance' },
-//     { time: `${baseDate}T14:00`, title: 'Dance Battle', description: 'Freestyle dance challenge' },
-//     { time: `${baseDate}T15:30`, title: 'Fun Games', description: 'Interactive games for all' },
-//     { time: `${baseDate}T17:00`, title: 'Prize Distribution', description: 'Awarding ceremony' },
-//     { time: `${baseDate}T18:00`, title: 'Closing Ceremony', description: 'Thank you note and feedback' },
+//     { time: `${baseDate}T08:00`, title: 'Arrival', description: 'Arrival' },
+//     { time: `${baseDate}T08:30`, title: 'Breakfast', description: 'Breakfast' },
+//     { time: `${baseDate}T09:00`, title: 'Check In', description: 'Check in + Tagging ' },
+//     { time: `${baseDate}T09:30`, title: '4th', description: 'Ice-breaking Activity + Orientation' },
+//     { time: `${baseDate}T10:00`, title: '5th', description: 'Drama & Carrom' },
+//     { time: `${baseDate}T11:30`, title: '6th', description: 'Dancing & Extempore' },
+//     { time: `${baseDate}T13:00`, title: '7th', description: 'Lunch' },
+//     { time: `${baseDate}T14:00`, title: '8th', description: 'Singing & Chess' },
+//     { time: `${baseDate}T15:20`, title: '8th', description: 'Tea Break' },
+//     { time: `${baseDate}T15:30`, title: '8th', description: 'Worship' },
+//     { time: `${baseDate}T16:00`, title: '8th', description: 'Message' },
+//     { time: `${baseDate}T16:30`, title: '8th', description: 'Winner Announced + Prizes' },
+//     { time: `${baseDate}T17:30`, title: '8th', description: 'Announcements + Thanksgiving' },
+//     { time: `${baseDate}T18:00`, title: '8th', description: 'Closing Prayer' },
 //   ];
 
 //   return (

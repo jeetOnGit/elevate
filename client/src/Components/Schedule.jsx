@@ -2,7 +2,7 @@ import React from "react";
 
 const Schedule = () => {
   const now = new Date();
-  const twoHoursLater = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+  const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
 
   // Set to tomorrow
   const tomorrow = new Date();
@@ -22,14 +22,20 @@ const Schedule = () => {
 
   // Dummy schedule (for tomorrow)
   const schedule = [
-    { time: buildTimeForTomorrow("09:00"), title: "Opening Ceremony", details: "Introduction & welcome" },
-    { time: buildTimeForTomorrow("10:00"), title: "Singing Competition", details: "Solo & Group" },
-    { time: buildTimeForTomorrow("11:30"), title: "Painting Display", details: "Creative exhibition" },
-    { time: buildTimeForTomorrow("13:00"), title: "Dance Battle", details: "Solo, Duet, Group" },
-    { time: buildTimeForTomorrow("15:00"), title: "Drama", details: "Stage play performance" },
-    { time: buildTimeForTomorrow("16:30"), title: "Quiz Contest", details: "Live competition" },
-    { time: buildTimeForTomorrow("18:00"), title: "Prize Distribution", details: "Winner announcements" },
-    { time: buildTimeForTomorrow("19:00"), title: "Closing Speech", details: "Thank you note" },
+    { time: buildTimeForTomorrow("08:00"), title: "Opening Ceremony", details: "Arrival" },
+    { time: buildTimeForTomorrow("08:30"), title: "Breakfast", details: "Paisa diya kya?" },
+    { time: buildTimeForTomorrow("09:00"), title: "Check-in & Tagging", details: "Collect your tag to check-in" },
+    { time: buildTimeForTomorrow("09:30"), title: "Ice-breaking Activity & Orientation", details: "Talk to your next person and build some strong bond" },
+    { time: buildTimeForTomorrow("10:00"), title: "Drama & Carrom", details: "First competetion for this day" },
+    { time: buildTimeForTomorrow("11:30"), title: "Dancing & Extempore", details: "WOW!, Second Competetion" },
+    { time: buildTimeForTomorrow("13:00"), title: "Lunch", details: "Paise diya kya?" },
+    { time: buildTimeForTomorrow("14:00"), title: "Singing & Chess", details: "Third competetion means HATRIC" },
+    { time: buildTimeForTomorrow("15:20"), title: "Tea Break", details: "Meet and greet with stranger and make them non-stranger" },
+    { time: buildTimeForTomorrow("15:30"), title: "Worship", details: "Make your life easier" },
+    { time: buildTimeForTomorrow("16:00"), title: "Message", details: "Dil ki baat" },
+    { time: buildTimeForTomorrow("16:30"), title: "Winner Announced & Prizes", details: "Give some applaus and be with them in thier achivments" },
+    { time: buildTimeForTomorrow("17:30"), title: "Announcements & Thanksgiving", details: "Important announcements you must hear" },
+    { time: buildTimeForTomorrow("18:00"), title: "Closing Prayer", details: "We will meet soon!" },
   ];
 
   // Render event with status
@@ -40,13 +46,13 @@ const Schedule = () => {
       return (
         <div key={index} className="bg-green-100 border-l-4 border-green-600 p-4 mb-2 rounded">
           <h3 className="text-lg font-semibold text-green-800">{event.title}</h3>
-          <p className="text-sm text-green-700">{event.details}</p>
+          <p className="text-sm text-green-700 italic">{event.details}</p>
           <p className="text-xs text-green-600">{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
         </div>
       );
     }
 
-    if (time >= now && time <= twoHoursLater) {
+    if (time >= now && time <= thirtyMinutesLater) {
       return (
         <div key={index} className="bg-blue-100 border-l-4 border-blue-600 p-4 mb-2 rounded animate-pulse">
           <h3 className="text-lg font-semibold text-blue-800">{event.title}</h3>
