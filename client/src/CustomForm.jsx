@@ -339,7 +339,7 @@ export default function App() {
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Pay 399/- here, Before 08/09/2025* <strong>(Breakfast, Lunch and snacks included)</strong>
               </label>
-              <img src="images/pay.jpeg" alt="" />
+              <img className='mx-auto border' src="images/pay.jpeg" alt="" />
             </div>
 
             {/* Image Upload */}
