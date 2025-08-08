@@ -157,7 +157,7 @@ export default function App() {
           <div className="bg-gray-100 text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[778px]:bg-top max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top w-full">
 
           </div>
-          <section className="bg-gray-100 py-2 px-6 md:px-16">
+          <section className="bg-gray-100 py-2 px-6 md:px-16 text-left">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Must Read Before Registration</h2>
               <ul className="space-y-6 text-gray-700 text-base leading-relaxed">
@@ -184,7 +184,7 @@ export default function App() {
           </section>
 
 
-          <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          <form onSubmit={handleSubmit} className="p-8 space-y-6 text-left">
             {/* Name */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -359,7 +359,7 @@ export default function App() {
             </div>
 
             <div className='flex justify-between max-[779px]:flex-col max-[779px]:gap-2'>
-              <p className=''>For any query Contact Us: </p>
+              <p className='text-black'>For any query Contact Us: </p>
               <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Nandi : +91 8910241042</p>
               <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Biswas : +91 62967 49166</p>
             </div>
