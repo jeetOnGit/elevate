@@ -12,7 +12,7 @@ const Home = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Hero Section */}
-      <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/hero.jpeg')] bg-no-repeat bg-cover bg-center flex justify-center items-center">
+      <section className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/hero.jpeg')] bg-no-repeat bg-cover bg-center flex justify-center items-center">
         <div className="container mx-auto px-4 md:px-8 relative z-10 py-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
 
@@ -50,7 +50,7 @@ const Home = () => {
                 ].map((rule, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white text-black p-4 rounded-md shadow-md text-center text-base sm:text-2xl font-semibold"
+                    className="bg-white text-black py-2 px-1 rounded-md shadow-md text-center text-base sm:text-2xl font-semibold relative before:absolute before:w-[5px] before:h-full before:bg-[#ff9700] before:top-0 before:left-0"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -73,7 +73,7 @@ const Home = () => {
             </motion.button>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Info / Rules Section */}
 
