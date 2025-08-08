@@ -1,30 +1,83 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css'
+import { motion } from 'framer-motion';
+import '../index.css';
+
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <motion.div
+      className="min-h-screen bg-gray-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       {/* Hero Section */}
+      <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/hero.jpeg')] bg-no-repeat bg-cover bg-center flex justify-center items-center">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 py-12">
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+
+            {/* H1 */}
+            <motion.h1
+              className="font-firstfont text-[#ff9700] text-5xl sm:text-6xl leading-tight max-[420px]:text-4xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              ELEVATE 2.0
+              <span className="block text-white font-italic text-lg sm:text-xl mt-1">Level up your faith</span>
+            </motion.h1>
+
+            {/* H3 */}
+            <motion.div
+              className="mt-3"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              <h3 className="font-secondfont text-4xl sm:text-6xl leading-snug">
+                INTER CHURCH TALENT CONTEST
+              </h3>
+              <p className="italic text-base sm:text-lg mt-1">Not just gifted, but called</p>
+            </motion.div>
 
 
-      <header className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/hero.jpeg')] bg-no-repeat bg-cover bg-center h-screen flex justify-center items-center">
-        
+            <section className=" py-10 px-4">
+              <div className="max-w-4xl mx-auto space-y-6">
+                {[
+                  "Open to All Churches/Fellowships.",
+                  "Each student can join solo or/& in a group for up to 2 categories.",
+                  "Prizes in every categories."
+                ].map((rule, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-white text-black p-4 rounded-md shadow-md text-center text-base sm:text-2xl font-semibold"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 + 1.2, duration: 0.5 }}
+                  >
+                    {rule}
+                  </motion.div>
+                ))}
+              </div>
+            </section>
 
-        <div className="container mx-auto px-6 md:py-32 relative z-10 max-[420px]:py-15 max-[420px]:px-1">
-          <div className=" mx-auto text-center">
-
-            <h1 className='font-firstfont text-[#ff9700] text-5xl max-[420px]:text-5xl !leading-10 max-[420px]:!leading-8'>ELEVATE 2.0 <span className='max-[420px]:text-xs block text-white font-italic text-sm'>Level up your faith</span></h1>
-
-            <div className='leading-4 mt-3'>
-              <h3 className='font-secondfont text-7xl max-[420px]:text-4xl'>INTER CHURCH TALENT CONTEST</h3>
-              <p className='font-secondfontItalics'>Not just gifted, but called</p>
-            </div>
-
-            <button className='text-white bg-[#ff9700] font-firstfont text-xs py-2 px-3 rounded border mt-5 hover:bg-transparent hover:border'><Link to='/form'>Register Yourself</Link></button>
+            {/* Button */}
+            <motion.button
+              className="text-white bg-[#ff9700] font-secondfont text-xl sm:text-2xl py-2 px-6 rounded border mt-5 hover:bg-transparent hover:border-white transition"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              <Link to="/form">Register Yourself</Link>
+            </motion.button>
           </div>
         </div>
-      </header>  
-    </div>
+      </header>
+
+      {/* Info / Rules Section */}
+
+    </motion.div>
   );
 };
 

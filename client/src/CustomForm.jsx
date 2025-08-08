@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SlotCheckboxGroup from './Components/SlotCheckboxGroup';
 import { useRef } from 'react';
 
@@ -151,29 +151,29 @@ export default function App() {
 
         <div className="">
 
-          <div className="bg-white text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[200px] max-[778px]:bg-contain max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top w-full">
+          <div className="bg-gray-100 text-center text-white bg-[url('/images/formBg.png')] bg-no-repeat bg-cover bg-center h-[200px] max-[778px]:h-[130px] max-[778px]:bg-contain max-[778px]:bg-top max-[420px]:h-[100px] max-[420px]:bg-contain max-[420px]:bg-top w-full">
           </div>
-          <section className="bg-gray-100 py-12 px-6 md:px-16">
+          <section className="bg-gray-100 py-2 px-6 md:px-16">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Rules & Guidelines</h2>
+              <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Must Read Before Registration</h2>
               <ul className="space-y-6 text-gray-700 text-base leading-relaxed">
                 <li className="">
-                  <strong>1. Join Our WhatsApp Community:</strong> Stay updated with event announcements, timings, and changes by joining our official WhatsApp group.
+                  <strong>1. Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
                 </li>
                 <li className="">
-                  <strong>2. Drama Competition – Background Sound:</strong> Participants must send their own background audio in advance. Supported format: MP3.
+                  <strong>2. Drama Competition :</strong> Each team must have minimum 5 members.
                 </li>
                 <li className="">
-                  <strong>3. Dance Performance – Music Track:</strong> Bring your own song (on your phone or pen drive). Internet will not be provided.
+                  <strong>3. Dance Competition :</strong>  Each team must have minimum 4 members.
                 </li>
                 <li className="">
-                  <strong>4. Singing Performance – Instrument:</strong> Bring your own instrument if required. No instruments will be provided on-site.
+                  <strong>4. Singing Competition</strong>  Each team must have minimum 5 members.
                 </li>
                 <li className="">
-                  <strong>5. Video Editing Competition:</strong> Bring your phone with a video editing app installed. No editing devices will be provided.
+                  <strong>5. Video Editing Competition :</strong> Bring your phone and charger with some crazy ideas.
                 </li>
                 <li className="">
-                  <strong>6. Painting Competition – Art Tools:</strong> All participants must bring their own art materials (brushes, colors, canvas, etc.). Only space will be provided.
+                  <strong>6. Painting Competition :</strong> Bring your own art materials (brushes, colors etc).
                 </li>
               </ul>
             </div>
@@ -298,7 +298,7 @@ export default function App() {
             {/* Who Invited */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Who Invited You?*
+                Who Invited You?
               </label>
               <input
                 type="text"
@@ -333,7 +333,7 @@ export default function App() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Pay 399 here, Before 08/09/2025*
+                Pay 399/- here, Before 08/09/2025* <strong>(Breakfast, Lunch and snacks included)</strong>
               </label>
               <img src="images/pay.jpeg" alt="" />
             </div>
@@ -352,6 +352,12 @@ export default function App() {
                 onChange={(e) => setFormData(prev => ({ ...prev, image: e.target.files[0] }))}
                 className="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
               />
+            </div>
+
+            <div className='flex justify-between max-[779px]:flex-col max-[779px]:gap-2'>
+              <p className=''>For any query Contact Us: </p>
+              <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Nandi : +91 8910241042</p>
+              <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Biswas : +91 62967 49166</p>
             </div>
 
 
