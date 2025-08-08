@@ -51,7 +51,7 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
             <h3 className="block text-sm font-semibold text-gray-700 mb-2">
               Slot {index + 1}
             </h3>
-            <div className="grid grid-cols-2 gap-3 max-[420px]:grid-cols-1">
+            <div className="grid grid-cols-2 gap-3 max-[420px]:grid-cols-2">
               {options.map((option) => {
                 const isSelected = slotSelections[slotKey] === option;
                 const slotHasSelection = slotSelections[slotKey] !== "";
@@ -62,7 +62,7 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
                 return (
                   <label
                     key={option}
-                    className={`flex items-center space-x-2 border-indigo-500 py-5 px-3 rounded-md cursor-pointer text-left ${
+                    className={`flex items-center space-x-2 border-indigo-500 py-3 px-4 rounded-md cursor-pointer text-left max-[520px]:py-2 max-[520px]:px-3  ${
                       shouldDisable
                         ? "bg-gray-50 text-gray-400"
                         : "bg-indigo-50 text-indigo-800"
@@ -74,9 +74,9 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
                       checked={isSelected}
                       disabled={shouldDisable}
                       onChange={() => handleSlotChange(slotKey, option)}
-                      className="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-500"
+                      className="w-3 h-5 text-xl text-indigo-600 rounded focus:ring-indigo-500"
                     />
-                    <span className="font-medium">{option}</span>
+                    <span className="font-medium text-base max-[520px]:text-xs">{option}</span>
                   </label>
                 );
               })}

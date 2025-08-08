@@ -5,7 +5,7 @@ const Schedule = () => {
   const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
 
   // Set to tomorrow
-  const tomorrow = new Date();
+  const tomorrow = new Date(-1);
   tomorrow.setDate(tomorrow.getDate());
 
   // Create Date object for tomorrow's time
@@ -22,9 +22,7 @@ const Schedule = () => {
 
   // Dummy schedule (for tomorrow)
   const schedule = [
-    { time: buildTimeForTomorrow("08:00"), title: "Opening Ceremony", details: "Arrival" },
-    { time: buildTimeForTomorrow("08:30"), title: "Breakfast", details: "Paisa diya kya?" },
-    { time: buildTimeForTomorrow("09:00"), title: "Check-in & Tagging", details: "Collect your tag to check-in" },
+
     { time: buildTimeForTomorrow("09:30"), title: "Ice-breaking Activity & Orientation", details: "Talk to your next person and build some strong bond" },
     { time: buildTimeForTomorrow("10:00"), title: "Drama & Carrom", details: "First competetion for this day" },
     { time: buildTimeForTomorrow("11:30"), title: "Dancing & Extempore", details: "WOW!, Second Competetion" },
