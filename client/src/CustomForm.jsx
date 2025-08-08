@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SlotCheckboxGroup from './Components/SlotCheckboxGroup';
 import { useRef } from 'react';
+import { toast } from 'react-toastify';
 
 
 export default function App() {
@@ -55,22 +56,21 @@ export default function App() {
       !age ||
       !gender ||
       !church.trim() ||
-      !invitedBy.trim() ||
       !institution.trim()
     ) {
-      setMessage("❌ Please fill in all required fields.");
+      toast.error("Please fill in all required fields.");
       return;
     }
 
     // Check if exactly 2 options are selected (slot checkbox)
     if (selectedOptions.length !== 2) {
-      setMessage("❌ Please select exactly 2 activities (1 per slot).");
+      toast.error("Please select exactly 2 activities (1 per slot).");
       return;
     }
 
     // Check if image is uploaded
     if (!image) {
-      setMessage("❌ Please upload your payment screenshot.");
+      toast.error("Please upload your payment screenshot.");
       return;
     }
 
@@ -99,7 +99,7 @@ export default function App() {
       });
 
       if (response.ok) {
-        setMessage(`✅ Submitted successfully, ${formData.name}!`);
+        toast.success(`Submitted successfully, ${formData.name}!`);
         setFormData({
           name: "",
           email: "",
@@ -118,10 +118,10 @@ export default function App() {
         }
 
       } else {
-        throw new Error("Submission failed");
+        toast.error("Submission failed.")
       }
     } catch (error) {
-      setMessage("❌ Submission failed. Please try again.");
+      toast.error("Something went wrong.")
       console.error("Error:", error);
     } finally {
       setIsSubmitting(false);
@@ -130,10 +130,10 @@ export default function App() {
 
 
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate('/login');
-  };
+  // const handleLogout = () => {
+  //   localStorage.clear();
+  //   navigate('/login');
+  // };
 
   useEffect(() => {
     if (message) {
@@ -171,7 +171,7 @@ export default function App() {
                   <strong>3. Dance Competition :</strong>  Each team must have minimum 4 members.
                 </li>
                 <li className="">
-                  <strong>4. Singing Competition</strong>  Each team must have minimum 5 members.
+                  <strong>4. Singing Competition</strong>  Each team must have minimum 5 members and maximum 3 intruments.
                 </li>
                 <li className="">
                   <strong>5. Video Editing Competition :</strong> Bring your phone and charger with some crazy ideas.
@@ -196,7 +196,7 @@ export default function App() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter your full name"
               />
             </div>
@@ -212,7 +212,7 @@ export default function App() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="you@example.com"
               />
             </div>
@@ -227,7 +227,7 @@ export default function App() {
                 value={formData.age}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               >
                 <option value="">Select Age</option>
                 {Array.from({ length: 13 }, (_, i) => 14 + i).map((ageValue) => (
@@ -277,7 +277,7 @@ export default function App() {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="+234 801 234 5678"
               />
             </div>
@@ -293,7 +293,7 @@ export default function App() {
                 name="church"
                 value={formData.church}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Your local church"
                 required
               />
@@ -309,9 +309,8 @@ export default function App() {
                 name="invitedBy"
                 value={formData.invitedBy}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="e.g. John Doe"
-                required
               />
             </div>
 
@@ -325,7 +324,7 @@ export default function App() {
                 name="institution"
                 value={formData.institution}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="e.g. ABC University"
                 required
               />
