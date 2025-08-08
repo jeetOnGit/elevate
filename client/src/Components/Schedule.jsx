@@ -5,7 +5,7 @@ const Schedule = () => {
   const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
 
   // Set to tomorrow
-  const tomorrow = new Date(-1);
+  const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate());
 
   // Create Date object for tomorrow's time
