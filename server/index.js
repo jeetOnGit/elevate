@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const Brevo = require("@getbrevo/brevo");
 require("dotenv").config();
 
 const multer = require("multer");
@@ -28,6 +29,13 @@ const storage = new CloudinaryStorage({
     allowed_formats: ["jpg", "jpeg", "png"],
   },
 });
+
+const brevoClient = new Brevo.TransactionalEmailsApi();
+brevoClient.setApiKey(
+  Brevo.TransactionalEmailsApiApiKeys.apiKey,
+  process.env.BREVO_API_KEY
+);
+
 const upload = multer({ storage });
 
 // ✅ MongoDB connection
@@ -39,8 +47,6 @@ mongoose
 // ✅ Submit Route
 app.post("/submit", upload.single("image"), async (req, res) => {
   try {
-    console.log("📦 Body:", req.body);
-    console.log("🖼️ File:", req.file);
 
     const {
       name,
@@ -64,7 +70,9 @@ app.post("/submit", upload.single("image"), async (req, res) => {
           : [];
     } catch (e) {
       console.error("❌ selectedOptions parse failed:", e);
-      return res.status(400).json({ message: "Invalid selectedOptions format" });
+      return res
+        .status(400)
+        .json({ message: "Invalid selectedOptions format" });
     }
 
     const newSubmission = new Submission({
@@ -81,7 +89,7 @@ app.post("/submit", upload.single("image"), async (req, res) => {
     });
 
     await newSubmission.save();
-
+    
     // ✅ Send to Google Sheet
     await axios.post(
       "https://script.google.com/macros/s/AKfycbyMXsQ-1b0aUlzMOPdJkl90KWCpRw-keiMPavel7U8KuqNFRvn1ftI55liz5DI-bUKE/exec",
@@ -99,10 +107,35 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       }
     );
 
+
+    const emailData = new Brevo.SendSmtpEmail();
+    emailData.subject = "✅ Your Elevate 2.0 Registration Confirmation";
+    emailData.htmlContent = `
+      <h2>Hello ${name},</h2>
+      <p>Thank you for registering for <strong>Elevate 2.0 Inter Church Talent Contest 🎯</strong></p>
+      <p>📅 <strong>Date:</strong> 6th October 2025</p>
+      <p>🕗 <strong>Time:</strong> 8 AM</p>
+      <p>📍 <strong>Venue:</strong> Circular Road Baptist Chapel</p>
+      <p><a href="https://maps.app.goo.gl/URvjwCc4JSXhNYed9">View Location</a></p>
+      <br/>
+      <p>Here’s what you need to remember:</p>
+      <ul>
+        <li>Join our WhatsApp channel for updates.</li>
+        <li>Bring your required items for your competition slot.</li>
+      </ul>
+      <p>See you there!<br/>Team Elevate 2.0</p>
+    `;
+    emailData.sender = { name: "Elevate Team", email: "dasjeet1009@gmail.com" };
+    emailData.to = [{ email, name }];
+
+    await brevoClient.sendTransacEmail(emailData);
+
     return res.status(201).json({ message: "Form submitted successfully" });
   } catch (error) {
     console.error("🔥 Server error:", error);
-    return res.status(500).json({ message: "Internal Server Error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
   }
 });
 
