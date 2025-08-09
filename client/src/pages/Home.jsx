@@ -12,7 +12,7 @@ const Home = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Hero Section */}
-      <section className="relative bg-[#ff9700] text-white overflow-hidden bg-[url('/images/hero.jpeg')] bg-no-repeat bg-cover bg-center flex justify-center items-center">
+      <section className="relative h-screen bg-[#ff9700] text-white overflow-hidden bg-[url('/images/hero.jpeg')] bg-no-repeat bg-cover bg-center flex justify-center items-center">
         <div className="container mx-auto px-4 md:px-8 relative z-10 py-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
 
@@ -44,9 +44,9 @@ const Home = () => {
             <section className=" py-10 px-4">
               <div className="max-w-4xl mx-auto space-y-6">
                 {[
-                  "Open to All Churches/Fellowships.",
+                  "Open to all Churches/Fellowships.",
                   "Each student can join solo or/& in a group for up to 2 categories.",
-                  "Prizes in every categories."
+                  "Prizes in every category."
                 ].map((rule, index) => (
                   <motion.div
                     key={index}
@@ -64,7 +64,7 @@ const Home = () => {
 
             {/* Button */}
             <motion.button
-              className="text-white bg-[#ff9700] font-secondfont text-xl sm:text-2xl py-2 px-6 rounded border mt-5 hover:bg-transparent hover:border-white transition"
+              className="text-white bg-[#ff9700] font-secondfont text-xl sm:text-2xl py-2 px-6 rounded border mt-5 hover:bg-transparent hover:border-white transition tracking-wider"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
