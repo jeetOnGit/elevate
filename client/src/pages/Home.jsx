@@ -71,6 +71,8 @@ const Home = () => {
             >
               <Link to="/form">Register Yourself</Link>
             </motion.button>
+
+           
           </div>
         </div>
       </section>

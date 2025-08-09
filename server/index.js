@@ -116,13 +116,19 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       <p>📅 <strong>Date:</strong> 6th October 2025</p>
       <p>🕗 <strong>Time:</strong> 8 AM</p>
       <p>📍 <strong>Venue:</strong> Circular Road Baptist Chapel</p>
-      <p><a href="https://maps.app.goo.gl/URvjwCc4JSXhNYed9">View Location</a></p>
+      <p><a href="https://maps.app.goo.gl/URvjwCc4JSXhNYed9" target="_blank">View Location</a></p>
       <br/>
       <p>Here’s what you need to remember:</p>
-      <ul>
-        <li>Join our WhatsApp channel for updates.</li>
-        <li>Bring your required items for your competition slot.</li>
-      </ul>
+      <ol>
+        <li> Join Our WhatsApp Channel: Get all event updates and announcements. <a href="https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p" target="_blank">View Location</a></li>
+        <li> Drama Competition : Each team must have a minimum 5 members. </li>
+        <li> JDance Competition : Each team must have minimum 4 members. </li>
+        <li> Singing Competition Each team must have minimum 5 members and maximum 3 intruments. </li>
+        <li> Video Editing Competition : Bring your phone and charger with some crazy ideas. </li>
+        <li> Painting Competition : Bring your own art materials (brushes, colors etc). </li>
+
+      </ol>
+      <p>If you have any questions, feel free to reach out to us at +91 8910241042</p>
       <p>See you there!<br/>Team Elevate 2.0</p>
     `;
     emailData.sender = { name: "Elevate Team", email: "dasjeet1009@gmail.com" };
