@@ -17,7 +17,7 @@ function AppRouter() {
       <>
       {/* ✅ ToastContainer should be outside Routes */}
       <ToastContainer
-        position="top-center"
+        position="bottom-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
