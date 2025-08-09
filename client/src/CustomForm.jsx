@@ -93,7 +93,7 @@ export default function App() {
 
       
       // https://elevate-d7qq.onrender.com
-      const response = await fetch("hhttps://elevate-d7qq.onrender.com/submit", {
+      const response = await fetch("https://elevate-d7qq.onrender.com/submit", {
         method: "POST",
         body: formPayload,
       });
