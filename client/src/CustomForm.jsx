@@ -166,7 +166,7 @@ export default function App() {
                     <strong>3. Dance Competition :</strong>  Each team must have minimum 4 members.
                   </li>
                   <li className="">
-                    <strong>4. Singing Competition</strong>  Each team must have minimum 5 members and maximum 3 intruments.
+                    <strong>4. Singing Competition</strong>  Each team must have minimum 5 members and maximum 3 instruments.
                   </li>
                   <li className="">
                     <strong>5. Video Editing Competition :</strong> Bring your phone and charger with some crazy ideas.
