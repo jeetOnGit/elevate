@@ -160,7 +160,7 @@ export default function App() {
                     <strong>Join Our WhatsApp Channel :</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
                   </li>
                   <li className="">
-                    <strong>Drama Competition :</strong> Each team must have minimum <strong>5 members</strong>. Each team will be given <strong>8-10 minutes</strong> to perform a drama. If you have any background for your performance, then send us before the event day.
+                    <strong>Drama Competition :</strong> Each team must have minimum <strong>5 members</strong>. Each team will be given <strong>8-10 minutes</strong> to perform a drama. If you have any background sounds for your performance, then send us before the event day.
                   </li>
                   <li className="">
                     <strong>Dance Competition :</strong>  Each team must have minimum <strong>4 members</strong>. Each team will be given <strong>4-5 minutes</strong> to perform a dance. You have to send us the background music before the event day.
