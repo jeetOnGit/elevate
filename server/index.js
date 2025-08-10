@@ -119,7 +119,7 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       <p>Here’s what you need to remember:</p>
       <ol>
         <li className="">
-          <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
+          <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><a className='' href='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</a></button>
         </li>
         <li className="">
         <strong>Drama Competition :</strong> Each team must have minimum 5 members. Ewill be given 8-10 minutes to perform a drama.
