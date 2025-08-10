@@ -155,26 +155,35 @@ export default function App() {
             <section className="bg-gray-100 py-2 px-6 md:px-16 text-left">
               <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Must Read Before Registration</h2>
-                <ul className="space-y-6 text-gray-700 text-base leading-relaxed">
+                <ol className="space-y-6 text-gray-700 text-base leading-relaxed">
                   <li className="">
-                    <strong>1. Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
+                    <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
                   </li>
                   <li className="">
-                    <strong>2. Drama Competition :</strong> Each team must have minimum 5 members.
+                    <strong>Drama Competition :</strong> Each team must have minimum 5 members. Each team will be given 8-10 minutes to perform a drama.
                   </li>
                   <li className="">
-                    <strong>3. Dance Competition :</strong>  Each team must have minimum 4 members.
+                    <strong>Dance Competition :</strong>  Each team must have minimum 4 members. Each team will be given 4-5 minutes to perform a dance.
                   </li>
                   <li className="">
-                    <strong>4. Singing Competition</strong>  Each team must have minimum 5 members and maximum 3 instruments.
+                    <strong>Singing Competition</strong>  Each team must have minimum 5 members and maximum 3 instruments. Each team will be given 5 minutes to perform a song.
                   </li>
                   <li className="">
-                    <strong>5. Video Editing Competition :</strong> Bring your phone and charger with some crazy ideas.
+                    <strong>Solo Reel Making :</strong> Bring your phone and charger with some crazy ideas. Each participant will get an ample amount of time to complete their video making and editing from morning to afternoon, and in between they can take part in their second competition.
                   </li>
                   <li className="">
-                    <strong>6. Painting Competition :</strong> Bring your own art materials (brushes, colors etc).
+                    <strong>Solo Sketching :</strong> Bring your own art materials (brushes, colors etc). Each participant will get an ample amount of time to complete their sketch of drawing from morning to afternoon, and in between they can take part in their second competition.
                   </li>
-                </ul>
+                  <li className="">
+                    <strong>Solo Extempore :</strong> Each participant will draw a chit from a box containing various topics and deliver a 3-minute message or sermon on the spot.
+                  </li>
+                  <li className="">
+                    <strong>Double TT :</strong> Participants will be in a pair to face other teams, in the semi final and finals will be in singles. The Game will be in 11 points.
+                  </li>
+                  <li className="">
+                    <strong>Solo Carrom :</strong> Each participant will face each other in simple knockout matches until we get a winner.
+                  </li>
+                </ol>
               </div>
             </section>
 
