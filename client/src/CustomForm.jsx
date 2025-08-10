@@ -157,7 +157,7 @@ export default function App() {
                 <h2 className="text-2xl font-bold text-left text-gray-800 mb-8">📝 Must Read Before Registration</h2>
                 <ol className="space-y-6 text-gray-700 text-base leading-relaxed">
                   <li className="">
-                    <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
+                    <strong>Join Our WhatsApp Channel :</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
                   </li>
                   <li className="">
                     <strong>Drama Competition :</strong> Each team must have minimum <strong>5 members</strong>. Each team will be given <strong>8-10 minutes</strong> to perform a drama.
@@ -166,7 +166,7 @@ export default function App() {
                     <strong>Dance Competition :</strong>  Each team must have minimum <strong>4 members</strong>. Each team will be given <strong>4-5 minutes</strong> to perform a dance.
                   </li>
                   <li className="">
-                    <strong>Singing Competition</strong>  Each team must have minimum <strong>5 members</strong> and maximum <strong>3 instruments</strong>. Each team will be given <strong>5 minutes</strong> to perform a song.
+                    <strong>Singing Competition :</strong>  Each team must have minimum <strong>5 members</strong> and maximum <strong>3 instruments</strong>. Each team will be given <strong>5 minutes</strong> to perform a song.
                   </li>
                   <li className="">
                     <strong>Solo Reel Making :</strong> Bring your phone and charger with some crazy ideas. Each participant will get an ample amount of time to complete their video making and editing from morning to afternoon, and in between they can take part in their second competition.

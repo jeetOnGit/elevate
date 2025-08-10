@@ -119,16 +119,16 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       <p>Here’s what you need to remember:</p>
       <ol>
         <li className="">
-          <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><a className='' href='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</a></button>
+          <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='font-bold'><a className='' href='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</a></button>
         </li>
         <li className="">
-        <strong>Drama Competition :</strong> Each team must have minimum 5 members. Ewill be given 8-10 minutes to perform a drama.
+        <strong>Drama Competition :</strong> Each team must have minimum 5 members. Ewill be given 8-10 minutes to perform a drama. Your have to send your background audio to us before the event.
         </li>
         <li className="">
-        <strong>Dance Competition :</strong>  Each team must have minimum 4 members. Ewill be given 4-5 minutes to perform a dance.
+        <strong>Dance Competition :</strong>  Each team must have minimum 4 members. Ewill be given 4-5 minutes to perform a dance. Your have to send your music file to us before the event.
         </li>
         <li className="">
-        <strong>Singing Competition</strong>  Each team must have minimum 5 members and minstruments. Each team will be given 5 minutes to perform a song.
+        <strong>Singing Competition</strong>  Each team must have minimum 5 members and minium 3 instruments. Each team will be given 5 minutes to perform a song.
         </li>
         <li className="">
           <strong>Solo Reel Making :</strong> Bring your phone and charger with some crazEach participant will get an ample amount of time to complete their video maediting from morning to afternoon, and in between they can take part in theicompetition.
@@ -173,6 +173,16 @@ app.get("/submissions", async (req, res) => {
     res.status(500).json({ message: "Error retrieving data", error });
   }
 });
+
+
+// app.delete("/delete-all-submissions", async (req, res) => {
+//   try {
+//     await Submission.deleteMany({});
+//     res.status(200).json({ message: "All submissions deleted successfully" });
+//   } catch (error) {
+//     res.status(500).json({ message: "Error deleting submissions", error });
+//   }
+// });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
