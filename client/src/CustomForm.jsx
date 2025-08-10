@@ -160,25 +160,25 @@ export default function App() {
                     <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
                   </li>
                   <li className="">
-                    <strong>Drama Competition :</strong> Each team must have minimum 5 members. Each team will be given 8-10 minutes to perform a drama.
+                    <strong>Drama Competition :</strong> Each team must have minimum <strong>5 members</strong>. Each team will be given <strong>8-10 minutes</strong> to perform a drama.
                   </li>
                   <li className="">
-                    <strong>Dance Competition :</strong>  Each team must have minimum 4 members. Each team will be given 4-5 minutes to perform a dance.
+                    <strong>Dance Competition :</strong>  Each team must have minimum <strong>4 members</strong>. Each team will be given <strong>4-5 minutes</strong> to perform a dance.
                   </li>
                   <li className="">
-                    <strong>Singing Competition</strong>  Each team must have minimum 5 members and maximum 3 instruments. Each team will be given 5 minutes to perform a song.
+                    <strong>Singing Competition</strong>  Each team must have minimum <strong>5 members</strong> and maximum <strong>3 instruments</strong>. Each team will be given <strong>5 minutes</strong> to perform a song.
                   </li>
                   <li className="">
                     <strong>Solo Reel Making :</strong> Bring your phone and charger with some crazy ideas. Each participant will get an ample amount of time to complete their video making and editing from morning to afternoon, and in between they can take part in their second competition.
                   </li>
                   <li className="">
-                    <strong>Solo Sketching :</strong> Bring your own art materials (brushes, colors etc). Each participant will get an ample amount of time to complete their sketch of drawing from morning to afternoon, and in between they can take part in their second competition.
+                    <strong>Solo Sketching :</strong> Bring your own <strong>art materials</strong> (brushes, colors etc). Each participant will get an ample amount of time to complete their sketch of drawing from morning to afternoon, and in between they can take part in their second competition.
                   </li>
                   <li className="">
-                    <strong>Solo Extempore :</strong> Each participant will draw a chit from a box containing various topics and deliver a 3-minute message or sermon on the spot.
+                    <strong>Solo Extempore :</strong> Each participant will draw a chit from a box containing various topics and deliver a <strong>3-minute</strong> message or sermon on the spot.
                   </li>
                   <li className="">
-                    <strong>Double TT :</strong> Participants will be in a pair to face other teams, in the semi final and finals will be in singles. The Game will be in 11 points.
+                    <strong>Double TT :</strong> Participants will be in a pair to face other teams, in the semi final and finals will be in singles. The Game will be in <strong>11 points</strong>.
                   </li>
                   <li className="">
                     <strong>Solo Carrom :</strong> Each participant will face each other in simple knockout matches until we get a winner.

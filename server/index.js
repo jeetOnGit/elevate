@@ -47,7 +47,6 @@ mongoose
 // ✅ Submit Route
 app.post("/submit", upload.single("image"), async (req, res) => {
   try {
-
     const {
       name,
       email,
@@ -89,7 +88,7 @@ app.post("/submit", upload.single("image"), async (req, res) => {
     });
 
     await newSubmission.save();
-    
+
     // ✅ Send to Google Sheet
     await axios.post(
       "https://script.google.com/macros/s/AKfycbyMXsQ-1b0aUlzMOPdJkl90KWCpRw-keiMPavel7U8KuqNFRvn1ftI55liz5DI-bUKE/exec",
@@ -107,7 +106,6 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       }
     );
 
-
     const emailData = new Brevo.SendSmtpEmail();
     emailData.subject = "✅ Your Elevate 2.0 Registration Confirmation";
     emailData.htmlContent = `
@@ -120,12 +118,33 @@ app.post("/submit", upload.single("image"), async (req, res) => {
       <br/>
       <p>Here’s what you need to remember:</p>
       <ol>
-        <li> Join Our WhatsApp Channel: Get all event updates and announcements. <a href="https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p" target="_blank">View Location</a></li>
-        <li> Drama Competition : Each team must have a minimum 5 members. </li>
-        <li> JDance Competition : Each team must have minimum 4 members. </li>
-        <li> Singing Competition Each team must have minimum 5 members and maximum 3 intruments. </li>
-        <li> Video Editing Competition : Bring your phone and charger with some crazy ideas. </li>
-        <li> Painting Competition : Bring your own art materials (brushes, colors etc). </li>
+        <li className="">
+          <strong>Join Our WhatsApp Channel:</strong> Get all event updates and announcements. <button className='py-2 px-3 bg-green-600 rounded text-white font-bold'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Join Now</Link></button>
+        </li>
+        <li className="">
+        <strong>Drama Competition :</strong> Each team must have minimum 5 members. Ewill be given 8-10 minutes to perform a drama.
+        </li>
+        <li className="">
+        <strong>Dance Competition :</strong>  Each team must have minimum 4 members. Ewill be given 4-5 minutes to perform a dance.
+        </li>
+        <li className="">
+        <strong>Singing Competition</strong>  Each team must have minimum 5 members and minstruments. Each team will be given 5 minutes to perform a song.
+        </li>
+        <li className="">
+          <strong>Solo Reel Making :</strong> Bring your phone and charger with some crazEach participant will get an ample amount of time to complete their video maediting from morning to afternoon, and in between they can take part in theicompetition.
+        </li>
+        <li className="">
+          <strong>Solo Sketching :</strong> Bring your own art materials (brushes, coloEach participant will get an ample amount of time to complete their sketch offrom morning to afternoon, and in between they can take part in their second competition.
+        </li>
+        <li className="">
+        <strong>Solo Extempore :</strong> Each participant will draw a chit from a box covarious topics and deliver a 3-minute message or sermon on the spot.
+        </li>
+        <li className="">
+        <strong>Double TT :</strong> Participants will be in a pair to face other teamssemi final and finals will be in singles. The Game will be in 11 points.
+        </li>
+        <li className="">
+        <strong>Solo Carrom :</strong> Each participant will face each other in simple matches until we get a winner.
+        </li>
 
       </ol>
       <p>If you have any questions, feel free to reach out to us at +91 8910241042</p>
@@ -154,8 +173,6 @@ app.get("/submissions", async (req, res) => {
     res.status(500).json({ message: "Error retrieving data", error });
   }
 });
-
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
