@@ -183,6 +183,9 @@ export default function App() {
                   <li className="">
                     <strong>Solo Carrom :</strong> Each participant will face each other in simple knockout matches until we get a winner.
                   </li>
+                  <li className="">
+                    <strong>Quiz competition :</strong>  A competition for all from the book of Matthew , Mark & Luke.
+                  </li>
                 </ol>
               </div>
             </section>
@@ -340,7 +343,7 @@ export default function App() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Pay 399/- here, Before 08/09/2025* <strong>(Breakfast, Lunch and snacks included)</strong>
+                  Pay 399/- here* <strong>(Breakfast, Lunch and snacks included)</strong>
                 </label>
                 <img className='mx-auto border' src="images/pay.jpeg" alt="" />
               </div>

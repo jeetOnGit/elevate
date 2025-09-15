@@ -45,7 +45,7 @@ const Home = () => {
               <div className="max-w-4xl mx-auto space-y-6">
                 {[
                   "Open to all Churches/Fellowships.",
-                  "Each student can join solo or/& in a group for up to 2 categories.",
+                  "Each student must join solo or/& in a group for up to 2 categories.",
                   "Prizes in every category."
                 ].map((rule, index) => (
                   <motion.div
