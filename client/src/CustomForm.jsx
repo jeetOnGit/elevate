@@ -35,14 +35,6 @@ export default function App() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (option) => {
-    if (selectedOptions.includes(option)) {
-      setSelectedOptions(selectedOptions.filter((o) => o !== option));
-    } else if (selectedOptions.length < 2) {
-      setSelectedOptions([...selectedOptions, option]);
-    }
-  };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,9 +54,9 @@ export default function App() {
       return;
     }
 
-    // Check if exactly 2 options are selected (slot checkbox)
-    if (selectedOptions.length !== 2) {
-      toast.error("Please select exactly 2 activities (1 per slot).");
+
+    if (selectedOptions.length < 2 || selectedOptions.length > 3) {
+      toast.error("Please select minimum 2 and maximum 3 activities.");
       return;
     }
 
@@ -91,7 +83,7 @@ export default function App() {
       formPayload.append("selectedOptions", JSON.stringify(selectedOptions));
       formPayload.append("image", image);
 
-      
+
       // https://elevate-d7qq.onrender.com
       const response = await fetch("https://elevate-d7qq.onrender.com/submit", {
         method: "POST",
