@@ -335,7 +335,7 @@ export default function App() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Pay 399/- here* <strong>(Breakfast, Lunch and snacks included)</strong>
+                  Pay 399/- here*
                 </label>
                 <img className='mx-auto border' src="images/pay.jpeg" alt="" />
               </div>
