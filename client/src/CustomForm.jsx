@@ -28,12 +28,18 @@ export default function App() {
   const navigate = useNavigate();
 
 
-
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  // const handleCheckboxChange = (option) => {
+  //   if (selectedOptions.includes(option)) {
+  //     setSelectedOptions(selectedOptions.filter((o) => o !== option));
+  //   } else if (selectedOptions.length < 2) {
+  //     setSelectedOptions([...selectedOptions, option]);
+  //   }
+  // };
 
 
   const handleSubmit = async (e) => {
@@ -55,8 +61,8 @@ export default function App() {
     }
 
 
-    if (selectedOptions.length < 2 || selectedOptions.length > 3) {
-      toast.error("Please select minimum 2 and maximum 3 activities.");
+    if (selectedOptions.length !== 2) {
+      toast.error("Please select exactly 2 activities (1 per slot).");
       return;
     }
 
@@ -361,6 +367,10 @@ export default function App() {
                 <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Nandi : +91 8910241042</p>
                 <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Biswas : +91 62967 49166</p>
               </div>
+
+              <p className="glow-box text-firstfont">
+                <strong>Quiz competition :</strong>  A competition for all from the book of Matthew , Mark & Luke.
+              </p>
 
 
               {/* Submit Button */}

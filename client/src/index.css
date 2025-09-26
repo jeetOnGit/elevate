@@ -38,3 +38,22 @@
 .secondfontItalics {
   font-family: "secondfontItalics", sans-serif;
 }
+
+.glow-box {
+  background-color: #000; 
+  color: #facc15;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 0.5rem;
+  animation: blinkShadow 1.5s infinite;
+  display: inline-block;
+}
+
+@keyframes blinkShadow {
+  0%, 100% {
+    box-shadow: 0 0 5px #ef4444, 0 0 10px #ef4444, 0 0 20px #ef4444;
+  }
+  50% {
+    box-shadow: none;
+  }
+}
