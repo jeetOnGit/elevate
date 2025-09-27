@@ -17,12 +17,15 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
 
   const [slotSelections, setSlotSelections] = useState(initialState);
 
-  const totalSelectedCount = Object.values(slotSelections).filter(Boolean).length;
+  const getFirstThreeCount = () =>
+    [slotSelections.slot1, slotSelections.slot2, slotSelections.slot3].filter(
+      Boolean
+    ).length;
 
   const handleSlotChange = (slotKey, option) => {
     const current = slotSelections[slotKey];
 
-    // if already selected → deselect
+    // toggle off
     if (current === option) {
       const updated = { ...slotSelections, [slotKey]: "" };
       setSlotSelections(updated);
@@ -30,10 +33,20 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
       return;
     }
 
-    // if already selected 2 slots, don't allow new
-    if (totalSelectedCount >= 2 && !current) return;
+    // rule: max 2 across slot1-3
+    if (
+      ["slot1", "slot2", "slot3"].includes(slotKey) &&
+      getFirstThreeCount() >= 2 &&
+      !current
+    ) {
+      return;
+    }
 
-    // else update normally
+    // rule: only 1 in slot4
+    if (slotKey === "slot4" && slotSelections.slot4 && !current) {
+      return;
+    }
+
     const updated = { ...slotSelections, [slotKey]: option };
     setSlotSelections(updated);
     onSelectionChange(Object.values(updated).filter(Boolean));
@@ -47,7 +60,7 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
   return (
     <div className="space-y-6">
       <h3 className="block text-sm font-semibold text-gray-700 mb-2">
-        Select exactly 2 options from 4 slots*
+        Pick 1–2 options from Slots 1–3 and exactly 1 option from Slot 4 *
       </h3>
 
       <div className="flex flex-col gap-6">
@@ -59,10 +72,22 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
             <div className="grid grid-cols-2 gap-3 max-[420px]:grid-cols-1">
               {options.map((option) => {
                 const isSelected = slotSelections[slotKey] === option;
-                const slotHasSelection = slotSelections[slotKey] !== "";
-                const shouldDisable =
-                  (!isSelected && slotHasSelection) || // only 1 per slot
-                  (!isSelected && totalSelectedCount >= 2); // total max 2
+
+                let shouldDisable = false;
+
+                // disable if max 2 chosen in first 3
+                if (
+                  ["slot1", "slot2", "slot3"].includes(slotKey) &&
+                  getFirstThreeCount() >= 2 &&
+                  !isSelected
+                ) {
+                  shouldDisable = true;
+                }
+
+                // disable if already chosen 1 in slot4
+                if (slotKey === "slot4" && slotSelections.slot4 && !isSelected) {
+                  shouldDisable = true;
+                }
 
                 return (
                   <label
