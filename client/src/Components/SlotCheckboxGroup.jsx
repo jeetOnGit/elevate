@@ -5,7 +5,7 @@ const SlotCheckboxGroup = ({ onSelectionChange, resetSignal }) => {
     slot1: ["Group Singing", "Table Tennis(Doubles)"],
     slot2: ["Group Dancing", "Solo Extempore"],
     slot3: ["Group Drama", "Carroms(Singles)"],
-    slot4: ["Solo Reels Editing", "Solo Painting"],
+    slot4: ["Solo Reels/video Editing", "Solo Painting"],
   };
 
   const initialState = {

@@ -362,16 +362,12 @@ export default function App() {
                 />
               </div>
 
-              <div className='flex justify-between max-[779px]:flex-col max-[779px]:gap-2'>
-                <p className='text-black'>For any query Contact Us: </p>
-                <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Nandi : +91 8910241042</p>
-                <p className='text-sm font-semibold rounded bg-indigo-50 text-indigo-700 hover:bg-indigo-100  px-2 py-1'>Rahul Biswas : +91 62967 49166</p>
-              </div>
-
               <p className="glow-box text-firstfont">
                 <strong>Quiz competition :</strong>  A competition for all from the book of Matthew , Mark & Luke.
+
               </p>
 
+                <button className=' glow-box text-firstfont'><Link className='' to='https://whatsapp.com/channel/0029Vb5xDqI6RGJ9abuCWY2p' target='_blank'>Must Join WhatsApp Channel : Click me</Link></button>
 
               {/* Submit Button */}
               <div>
@@ -384,7 +380,7 @@ export default function App() {
                       : 'bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300'
                     }`}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Registration'}
+                  {isSubmitting ? 'Submitting...Please Wait' : 'Submit Registration'}
                 </button>
               </div>
 
