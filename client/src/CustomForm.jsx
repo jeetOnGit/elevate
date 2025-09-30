@@ -61,9 +61,9 @@ export default function App() {
     }
 
 
-    if (selectedOptions.length !== 2) {
-      toast.error("Please select exactly 2 activities (1 per slot).");
-      return;
+    if (selectedOptions.length < 2 || selectedOptions.length > 3) {
+  toast.error("Please select 2 or 3 activities (with at least 1 from Slot 4).");
+  return;
     }
 
     // Check if image is uploaded
