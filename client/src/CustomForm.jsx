@@ -61,9 +61,9 @@ export default function App() {
     }
 
 
-    if (selectedOptions.length !== 2) {
-      toast.error("Please select exactly 2 activities (1 per slot).");
-      return;
+    if (selectedOptions.length < 2 || selectedOptions.length > 3) {
+  toast.error("Please select 2 or 3 activities (with at least 1 from Slot 4).");
+  return;
     }
 
     // Check if image is uploaded
@@ -174,9 +174,6 @@ export default function App() {
                   </li>
                   <li className="">
                     <strong>Solo Extempore :</strong> Each participant will draw a chit from a box containing various topics and deliver a <strong>3-minute</strong> message or sermon on the spot.
-                  </li>
-                  <li className="">
-                    <strong>Double TT :</strong> Participants will be in a pair to face other teams, in the semi final and finals will be in singles. The Game will be in <strong>11 points</strong>.
                   </li>
                   <li className="">
                     <strong>Solo Carrom :</strong> Each participant will face each other in simple knockout matches until we get a winner.
