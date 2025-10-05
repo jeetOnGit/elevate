@@ -5,25 +5,25 @@ import { Clock, MapPin, Calendar, ChevronRight } from "lucide-react";
 
 const events = [
   { time: "08:30 AM", location:"Outdoor", title: "Breakfast", details: "Please brush your teeth before breakfast." },
-  { time: "09:00 AM", location:"Outdoor", title: "Check in + Tagging ", details:"Check in with your signature and collect the tag." },
+  { time: "09:00 AM", location:"Outdoor", title: "Check in + Tagging ", details:"Check in and collect your tag." },
   { time: "09:25 AM", location:"Julian Hall", title: "Opening Prayer", details:"" },
-  { time: "09:30 AM", location:"Julian Hall", title: "Ice-breaking Activity + Orientation", details:"Turn left and right, talk to the first person you see." },
-  { time: "10:00 AM", location:"Whole Premises", title: "Video Editing Competition ", details:"Shoot high quality videos and edit them with the given topic" },
-  { time: "10:00 AM", location:"Whole Premises", title: "Drawing Competition", details:"Draw with your best imagination with given topic" },
-  { time: "10:00 AM", location:"Julian Hall", title: "Drama Competition", details:"" },
+  { time: "09:30 AM", location:"Julian Hall", title: "Ice-breaking + Orientation", details:"Turn left and right, talk to the first person you see." },
+  { time: "10:00 AM", location:"Whole Premises", title: "Video Editing Competition ", details:"Shoot high quality videos and edit them with the given theme." },
+  { time: "10:00 AM", location:"Whole Premises", title: "Drawing Competition", details:"Draw with your best imagination with given theme." },
+  { time: "10:00 AM", location:"Julian Hall", title: "Drama Competition", details:"Natak karna koi apse sikhe." },
   { time: "10:00 AM", location:"CEC", title: "Carrom Competition", details:"Rani kiski hogi?" },
   { time: "11:30 AM", location:"Julian Hall", title: "Dancing Competition", details:"Nach basanti nach" },
-  { time: "11:30 AM", location:"CEC", title: "Extempore", details:"" },
+  { time: "11:30 AM", location:"CEC", title: "Extempore", details:"Bohot baatein karte ho!!" },
   { time: "01:00 PM", location:"Outdoor", title: "Lunch", details:"Paisa diye ho?" },
   { time: "02:00 PM", location:"Julian Hall", title: "Singing Competition", details:"Are you arijit or shreya?" },
-  { time: "02:00 PM", location:"CEC", title: "Carrom Competition Finals", details:"Rani ni kahani ka antim faisla" },
+  { time: "02:00 PM", location:"CEC", title: "Carrom Competition Finals", details:"Rani ki kahani ka antim faisla" },
   { time: "03:20 PM", location:"Outdoor", title: "Tea Break", details:"Hello friends, Chai pee lo!" },
   { time: "03:30 PM", location:"Julian Hall", title: "Quiz Competition", details:"Don't dare to use Google or AI." },
   { time: "04:15 PM", location:"Julian Hall", title: "Worship Action Song", details:"" },
   { time: "04:30 PM", location:"Julian Hall", title: "Prizes Distribution", details:"You are always THE BEST, forget prizes." },
-  { time: "05:15 PM", location:"Julian Hall", title: "Vission Casting + Thanksgiving", details:"Thanks for your support now watch the screen" },
+  { time: "05:15 PM", location:"Julian Hall", title: "Vission Casting + Thanksgiving", details:"Thanks for your support, now watch the screen" },
   { time: "05:45 PM", location:"Julian Hall", title: "Announcements", details:"English bolke bataye?" },
-  { time: "06:00 PM", location:"Julian Hall", title: "Closing Prayer", details:"" },
+  { time: "06:00 PM", location:"Julian Hall", title: "Closing Prayer", details:"Like, Share and Follow." },
   { time: "06:00 PM", location:"Whole Premises", title: "Tea + Fellowship", details:"Dost banao, kya pata BFF ban jaye." },
 ];
 
@@ -35,9 +35,9 @@ export default function EventSchedule() {
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-5xl font-firstfont font-extrabold text-[#ff9700] mb-6 drop-shadow-lg"
+        className="text-5xl font-firstfont font-extrabold text-[#ff9700] mb-6 drop-shadow-lg max-[420px]:text-3xl text-center"
       >
-        ⚡ ELEVATE INTER CHURCH COMPETETION ⚡
+        ELEVATE INTER CHURCH COMPETETION 
       </motion.h1>
 
       <div className="w-full max-w-2xl shadow-2xl rounded-2xl bg-zinc-900 border border-[#ff9700]">
@@ -63,7 +63,7 @@ export default function EventSchedule() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`flex justify-between items-center p-4 rounded-xl cursor-pointer transition-all shadow-md border ${
+                  className={`flex justify-between gap-1 items-center p-4 rounded-xl cursor-pointer transition-all shadow-md border ${
                     selectedEvent === index
                       ? "bg-[#ff9700] text-black border-[#ff9700]"
                       : "bg-zinc-800 text-gray-200 hover:bg-zinc-700 border-zinc-700"
@@ -72,8 +72,8 @@ export default function EventSchedule() {
                     setSelectedEvent(selectedEvent === index ? null : index)
                   }
                 >
-                  <span className="font-bold">{event.time}</span>
-                  <span>{event.title}</span>
+                  <span className="font-semibold text-left text-sm">{event.time}</span>
+                  <span className="">{event.title}</span>
                   <ChevronRight
                     className={
                       selectedEvent === index ? "text-black rotate-90 transition-transform" : "text-[#ff9700] transition-transform"
