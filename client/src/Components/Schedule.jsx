@@ -1,83 +1,109 @@
-import React from "react";
+import { useState } from "react";
+// import { Card, CardContent } from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
+import { Clock, MapPin, Calendar, ChevronRight } from "lucide-react";
 
-const Schedule = () => {
-  const now = new Date();
-  const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
+const events = [
+  { time: "08:30 AM", location:"Outdoor", title: "Breakfast", details: "Please brush your teeth before breakfast." },
+  { time: "09:00 AM", location:"Outdoor", title: "Check in + Tagging ", details:"Check in with your signature and collect the tag." },
+  { time: "09:25 AM", location:"Julian Hall", title: "Opening Prayer", details:"" },
+  { time: "09:30 AM", location:"Julian Hall", title: "Ice-breaking Activity + Orientation", details:"Turn left and right, talk to the first person you see." },
+  { time: "10:00 AM", location:"Whole Premises", title: "Video Editing Competition ", details:"Shoot high quality videos and edit them with the given topic" },
+  { time: "10:00 AM", location:"Whole Premises", title: "Drawing Competition", details:"Draw with your best imagination with given topic" },
+  { time: "10:00 AM", location:"Julian Hall", title: "Drama Competition", details:"" },
+  { time: "10:00 AM", location:"CEC", title: "Carrom Competition", details:"Rani kiski hogi?" },
+  { time: "11:30 AM", location:"Julian Hall", title: "Dancing Competition", details:"Nach basanti nach" },
+  { time: "11:30 AM", location:"CEC", title: "Extempore", details:"" },
+  { time: "01:00 PM", location:"Outdoor", title: "Lunch", details:"Paisa diye ho?" },
+  { time: "02:00 PM", location:"Julian Hall", title: "Singing Competition", details:"Are you arijit or shreya?" },
+  { time: "02:00 PM", location:"CEC", title: "Carrom Competition Finals", details:"Rani ni kahani ka antim faisla" },
+  { time: "03:20 PM", location:"Outdoor", title: "Tea Break", details:"Hello friends, Chai pee lo!" },
+  { time: "03:30 PM", location:"Julian Hall", title: "Quiz Competition", details:"Don't dare to use Google or AI." },
+  { time: "04:15 PM", location:"Julian Hall", title: "Worship Action Song", details:"" },
+  { time: "04:30 PM", location:"Julian Hall", title: "Prizes Distribution", details:"You are always THE BEST, forget prizes." },
+  { time: "05:15 PM", location:"Julian Hall", title: "Vission Casting + Thanksgiving", details:"Thanks for your support now watch the screen" },
+  { time: "05:45 PM", location:"Julian Hall", title: "Announcements", details:"English bolke bataye?" },
+  { time: "06:00 PM", location:"Julian Hall", title: "Closing Prayer", details:"" },
+  { time: "06:00 PM", location:"Whole Premises", title: "Tea + Fellowship", details:"Dost banao, kya pata BFF ban jaye." },
+];
 
-  // Set to tomorrow
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate());
-
-  // Create Date object for tomorrow's time
-  const buildTimeForTomorrow = (timeStr) => {
-    const [hour, minute] = timeStr.split(":").map(Number);
-    return new Date(
-      tomorrow.getFullYear(),
-      tomorrow.getMonth(),
-      tomorrow.getDate(),
-      hour,
-      minute
-    );
-  };
-
-  // Dummy schedule (for tomorrow)
-  const schedule = [
-
-    { time: buildTimeForTomorrow("09:30"), title: "Ice-breaking Activity & Orientation", details: "Talk to your next person and build some strong bond" },
-    { time: buildTimeForTomorrow("10:00"), title: "Drama & Carrom", details: "First competetion for this day" },
-    { time: buildTimeForTomorrow("11:30"), title: "Dancing & Extempore", details: "WOW!, Second Competetion" },
-    { time: buildTimeForTomorrow("13:00"), title: "Lunch", details: "Paise diya kya?" },
-    { time: buildTimeForTomorrow("14:00"), title: "Singing & Chess", details: "Third competetion means HATRIC" },
-    { time: buildTimeForTomorrow("15:20"), title: "Tea Break", details: "Meet and greet with stranger and make them non-stranger" },
-    { time: buildTimeForTomorrow("15:30"), title: "Worship", details: "Make your life easier" },
-    { time: buildTimeForTomorrow("16:00"), title: "Message", details: "Dil ki baat" },
-    { time: buildTimeForTomorrow("16:30"), title: "Winner Announced & Prizes", details: "Give some applaus and be with them in thier achivments" },
-    { time: buildTimeForTomorrow("17:30"), title: "Announcements & Thanksgiving", details: "Important announcements you must hear" },
-    { time: buildTimeForTomorrow("18:00"), title: "Closing Prayer", details: "We will meet soon!" },
-  ];
-
-  // Render event with status
-  const renderEvent = (event, index) => {
-    const time = event.time;
-
-    if (time < now) {
-      return (
-        <div key={index} className="bg-green-100 border-l-4 border-green-600 p-4 mb-2 rounded">
-          <h3 className="text-lg font-semibold text-green-800">{event.title}</h3>
-          <p className="text-sm text-green-700 italic">{event.details}</p>
-          <p className="text-xs text-green-600">{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-        </div>
-      );
-    }
-
-    if (time >= now && time <= thirtyMinutesLater) {
-      return (
-        <div key={index} className="bg-blue-100 border-l-4 border-blue-600 p-4 mb-2 rounded animate-pulse">
-          <h3 className="text-lg font-semibold text-blue-800">{event.title}</h3>
-          <p className="text-sm text-blue-700">{event.details}</p>
-          <p className="text-xs text-blue-600">{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-        </div>
-      );
-    }
-
-    // Surprise (locked)
-    return (
-      <div key={index} className="bg-gray-100 border-l-4 border-gray-400 p-4 mb-2 rounded opacity-60">
-        <h3 className="text-lg font-semibold text-gray-500">🎁 Surprise Event</h3>
-        <p className="text-sm text-gray-400">Details will unlock soon</p>
-        <p className="text-xs text-gray-500">
-          {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-        </p>
-      </div>
-    );
-  };
+export default function EventSchedule() {
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-6">📅 Today's Event Schedule</h1>
-      {schedule.map((event, index) => renderEvent(event, index))}
+    <div className="min-h-screen bg-black py-10 px-6 flex flex-col items-center">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-5xl font-firstfont font-extrabold text-[#ff9700] mb-6 drop-shadow-lg"
+      >
+        ⚡ ELEVATE INTER CHURCH COMPETETION ⚡
+      </motion.h1>
+
+      <div className="w-full max-w-2xl shadow-2xl rounded-2xl bg-zinc-900 border border-[#ff9700]">
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <p className="flex items-center gap-2 text-[#ff9700] font-medium">
+                <Calendar size={18} /> 06th October 2025
+              </p>
+              <p className="flex items-center gap-2 text-[#ff9700] font-medium">
+                <Clock size={18} /> 08:00 AM - 06:00 PM
+              </p>
+              <p className="flex items-center gap-2 text-[#ff9700] font-medium">
+                <MapPin size={18} /> CRBC, Sealdah
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {events.map((event, index) => (
+              <div key={index}>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`flex justify-between items-center p-4 rounded-xl cursor-pointer transition-all shadow-md border ${
+                    selectedEvent === index
+                      ? "bg-[#ff9700] text-black border-[#ff9700]"
+                      : "bg-zinc-800 text-gray-200 hover:bg-zinc-700 border-zinc-700"
+                  }`}
+                  onClick={() =>
+                    setSelectedEvent(selectedEvent === index ? null : index)
+                  }
+                >
+                  <span className="font-bold">{event.time}</span>
+                  <span>{event.title}</span>
+                  <ChevronRight
+                    className={
+                      selectedEvent === index ? "text-black rotate-90 transition-transform" : "text-[#ff9700] transition-transform"
+                    }
+                  />
+                </motion.div>
+
+                <AnimatePresence>
+                  {selectedEvent === index && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 50 }}
+                      transition={{ duration: 0.3 }}
+                      className="mt-2 p-4 bg-zinc-800 rounded-xl border border-[#ff9700]"
+                    >
+                      <h2 className="text-lg font-bold text-[#ff9700] mb-2">
+                        Event Details
+                      </h2>
+                      <p className="text-gray-200">
+                        <strong>{events[selectedEvent].time}</strong> - <strong>{events[selectedEvent].location}</strong> — {events[selectedEvent].details}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default Schedule;
+}
