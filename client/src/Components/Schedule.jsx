@@ -1,12 +1,12 @@
 import { useState } from "react";
 // import { Card, CardContent } from "@/components/ui/card";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, MapPin, Calendar, ChevronRight } from "lucide-react";
+import { Clock, MapPin, Calendar, ChevronRight, Instagram, Facebook } from "lucide-react";
 
 const events = [
   { time: "08:30 AM", location:"Outdoor", title: "Breakfast", details: "Please brush your teeth before breakfast." },
   { time: "09:00 AM", location:"Outdoor", title: "Check in + Tagging ", details:"Check in and collect your tag." },
-  { time: "09:25 AM", location:"Julian Hall", title: "Opening Prayer", details:"" },
+  { time: "09:25 AM", location:"Julian Hall", title: "Opening Prayer", details:"Hello Bachhoooooooo..." },
   { time: "09:30 AM", location:"Julian Hall", title: "Ice-breaking + Orientation", details:"Turn left and right, talk to the first person you see." },
   { time: "10:00 AM", location:"Whole Premises", title: "Video Editing Competition ", details:"Shoot high quality videos and edit them with the given theme." },
   { time: "10:00 AM", location:"Whole Premises", title: "Drawing Competition", details:"Draw with your best imagination with given theme." },
@@ -19,7 +19,7 @@ const events = [
   { time: "02:00 PM", location:"CEC", title: "Carrom Competition Finals", details:"Rani ki kahani ka antim faisla" },
   { time: "03:20 PM", location:"Outdoor", title: "Tea Break", details:"Hello friends, Chai pee lo!" },
   { time: "03:30 PM", location:"Julian Hall", title: "Quiz Competition", details:"Don't dare to use Google or AI." },
-  { time: "04:15 PM", location:"Julian Hall", title: "Worship Action Song", details:"" },
+  { time: "04:15 PM", location:"Julian Hall", title: "Worship Action Song", details:"Enjoy the song!" },
   { time: "04:30 PM", location:"Julian Hall", title: "Prizes Distribution", details:"You are always THE BEST, forget prizes." },
   { time: "05:15 PM", location:"Julian Hall", title: "Vission Casting + Thanksgiving", details:"Thanks for your support, now watch the screen" },
   { time: "05:45 PM", location:"Julian Hall", title: "Announcements", details:"English bolke bataye?" },
@@ -104,6 +104,34 @@ export default function EventSchedule() {
           </div>
         </div>
       </div>
+
+      <section className="w-full py-8 bg-black flex justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex items-center gap-8 bg-zinc-900 px-6 py-4 rounded-2xl border border-yellow-500 shadow-lg max-[520px]:flex-col max-[520px]:w-full"
+      >
+        <p className="text-yellow-400 font-semibold text-lg">Follow Us:</p>
+
+        <a
+          href="https://instagram.com/iyfc_kolkata"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-gray-200 hover:text-yellow-400 transition"
+        >
+          <Instagram size={22} /> Instagram
+        </a>
+
+        <a
+          href="https://www.facebook.com/share/19yTbKxKyy/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-gray-200 hover:text-yellow-400 transition"
+        >
+          <Facebook size={22} /> Facebook
+        </a>
+      </motion.div>
+    </section>
     </div>
   );
 }
