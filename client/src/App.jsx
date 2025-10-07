@@ -30,9 +30,9 @@ function AppRouter() {
       />
       <AnimatePresence mode="wait">
           <Routes  location={location} key={location.pathname}>
-            <Route path="/home" element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/login" element={<PageWrapper><Login /></PageWrapper>} />
-            <Route path="/" element={<PageWrapper><Schedule /></PageWrapper>} />
+            <Route path="/schedule" element={<PageWrapper><Schedule /></PageWrapper>} />
             <Route path="/home" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/form" element={<PageWrapper><CustomForm /></PageWrapper>} />
 

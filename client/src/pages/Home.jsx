@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Instagram, Facebook } from "lucide-react";
 import '../index.css';
 
 const Home = () => {
   const highlights = [
-    { src: "/videos/prevElevate.mp4", title: "Elevate 1.0"  },
+    { src: "/videos/prevElevate.mp4", title: "Elevate 1.0" },
     { src: "/videos/bonfire2024.mp4", title: "Bonfire 2024" },
     { src: "/videos/football.mp4", title: "Football Tournament" },
   ];
@@ -44,19 +45,16 @@ const Home = () => {
               </h3>
               <p className="italic text-base sm:text-lg mt-1">Not just gifted, but called</p>
               <motion.button
-              className="text-white bg-[#ff9700] font-secondfont text-xl sm:text-2xl py-2 px-6 rounded border mt-5 hover:bg-transparent hover:border-white transition tracking-wider"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
-            >
-              <Link to="/schedule">Check Schedule</Link>
-            </motion.button>
+                className="text-white bg-[#ff9700] font-secondfont text-xl sm:text-2xl py-2 px-6 rounded border mt-5 hover:bg-transparent hover:border-white transition tracking-wider"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.6 }}
+              >
+                <Link to='https://forms.gle/LYyU6DWvw3yHFpCv7' target='_blank'>Elevate Feedback</Link>
+              </motion.button>
             </motion.div>
 
 
-            {/* <section>
-      <video src="videos/prevElevate.mp4" autoPlay loop controls></video>
-    </section> */}
 
 
             <div className="min-h-screen py-6 px-6 flex flex-col items-center">
@@ -93,26 +91,7 @@ const Home = () => {
             </div>
 
 
-            {/* <section className=" py-10 px-4">
-              <div className="max-w-4xl mx-auto space-y-6">
-                {[
-                  "Open to all Churches/Fellowships.",
-                  "Each student must join solo or/& in a group for up to 2 categories.",
-                  "Prizes in every category."
-                ].map((rule, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white text-black py-2 px-1 rounded-md shadow-md text-center text-base sm:text-2xl font-semibold relative before:absolute before:w-[5px] before:h-full before:bg-[#ff9700] before:top-0 before:left-0"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.2 + 1.2, duration: 0.5 }}
-                  >
-                    {rule}
-                  </motion.div>
-                ))}
-              </div>
-            </section> */}
+
 
             {/* Button */}
             {/* <motion.button
@@ -124,6 +103,34 @@ const Home = () => {
               <Link to="/form">Register Yourself</Link>
             </motion.button> */}
 
+            <section className="w-full py-8 flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-8  px-6 py-4 rounded-2xl border border-yellow-500 shadow-lg max-[520px]:flex-col max-[520px]:w-full"
+              >
+                <p className="text-yellow-400 font-semibold text-lg">Follow Us:</p>
+
+                <a
+                  href="https://instagram.com/iyfc_kolkata"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-200 hover:text-yellow-400 transition"
+                >
+                  <Instagram size={22} /> Instagram
+                </a>
+
+                <a
+                  href="https://www.facebook.com/share/19yTbKxKyy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-200 hover:text-yellow-400 transition"
+                >
+                  <Facebook size={22} /> Facebook
+                </a>
+                
+              </motion.div>
+            </section>
 
           </div>
         </div>
