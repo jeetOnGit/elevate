@@ -130,6 +130,7 @@ export default function EventSchedule() {
         >
           <Facebook size={22} /> Facebook
         </a>
+        <a href="https://forms.gle/LYyU6DWvw3yHFpCv7" className="text-white">FEEDBACK FORM</a>
       </motion.div>
     </section>
     </div>
